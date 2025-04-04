@@ -44,7 +44,7 @@ Before starting, ensure you have the following installed:
 1. Install Astra in your Next.js project:
 
    ```bash
-   pnpm add @astra/ui
+   pnpm dlx shadcn@latest add "https://astra.egeuysall.com/r/globe"
    ```
 2. Import and use Astra components in your project:
 

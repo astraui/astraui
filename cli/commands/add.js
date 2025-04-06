@@ -4,6 +4,7 @@ import chalk from 'chalk';
 import ora from 'ora';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import { execSync } from 'child_process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -17,6 +18,57 @@ const COMPONENT_DEPENDENCIES = {
 
 // Modern separator for visual breaks
 const separator = () => console.log(chalk.dim('─'.repeat(60)));
+
+/**
+ * Detect which package manager is being used in the project
+ * @returns {string} The package manager command (npm, yarn, pnpm)
+ */
+function detectPackageManager() {
+  try {
+    // Check for lockfiles to determine the package manager
+    if (fs.existsSync(path.join(process.cwd(), 'pnpm-lock.yaml'))) {
+      return 'pnpm';
+    } else if (fs.existsSync(path.join(process.cwd(), 'yarn.lock'))) {
+      return 'yarn';
+    } else {
+      return 'npm'; // Default to npm
+    }
+  } catch (error) {
+    return 'npm'; // Fallback to npm
+  }
+}
+
+/**
+ * Install required dependencies using the appropriate package manager
+ * @param {string[]} dependencies - List of dependencies to install
+ * @returns {Promise<boolean>} Whether installation was successful
+ */
+async function installDependencies(dependencies) {
+  if (!dependencies.length) return true;
+
+  const packageManager = detectPackageManager();
+  const installCmd = packageManager === 'yarn' ? 'add' : 'install';
+
+  const spinner = ora({
+    text: `Installing dependencies using ${packageManager}...`,
+    color: 'cyan'
+  }).start();
+
+  try {
+    // Create the command based on the package manager
+    const command = `${packageManager} ${installCmd} ${dependencies.join(' ')}`;
+
+    // Execute the installation command
+    execSync(command, { stdio: 'ignore' });
+
+    spinner.succeed(`Installed dependencies: ${chalk.bold(dependencies.join(', '))}`);
+    return true;
+  } catch (error) {
+    spinner.fail(`Failed to install dependencies`);
+    console.error(chalk.red(`  └─ ${error.message}`));
+    return false;
+  }
+}
 
 /**
  * Ensures the lib/utils.ts file exists with the cn utility function
@@ -79,9 +131,11 @@ export function cn(...inputs: ClassValue[]) {
       );
 
       if (missingDeps.length > 0) {
-        depsSpinner.warn('Required dependencies missing');
-        console.log(chalk.yellow(`Please install: ${chalk.white(missingDeps.join(', '))}`));
-        console.log(chalk.dim(`Run: ${chalk.cyan(`npm install ${missingDeps.join(' ')}`)}`));
+        depsSpinner.succeed('Dependencies check completed');
+
+        // Install missing dependencies automatically
+        console.log(chalk.dim(`Installing required dependencies: ${chalk.white(missingDeps.join(', '))}`));
+        await installDependencies(missingDeps);
       } else {
         depsSpinner.succeed('All required dependencies are installed');
       }
@@ -139,7 +193,7 @@ async function autoInitialize(options) {
 export async function add(components, options) {
   separator();
   console.log(chalk.bold.cyan(`Astra Component Installation`));
-  console.log(chalk.dim('2025-04-06 01:16:10'));
+  console.log(chalk.dim('2025-04-06 01:25:59'));
   separator();
 
   let config;

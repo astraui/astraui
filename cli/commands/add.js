@@ -25,7 +25,7 @@ const separator = () => console.log(chalk.dim('─'.repeat(60)));
  */
 async function autoInitialize(options) {
   const spinner = ora({
-    text: 'Automatically initializing AstraNext UI...',
+    text: 'Automatically initializing Astra...',
     color: 'cyan'
   }).start();
 
@@ -41,15 +41,15 @@ async function autoInitialize(options) {
     };
 
     // Write the configuration file
-    await fs.writeJSON('astranext.config.json', defaultConfig, { spaces: 2 });
+    await fs.writeJSON('astra.config.json', defaultConfig, { spaces: 2 });
 
     // Ensure the components directory exists
     await fs.ensureDir(defaultConfig.ui.components.path);
 
-    spinner.succeed(chalk.bold('AstraNext UI has been automatically initialized'));
+    spinner.succeed(chalk.bold('Astra has been automatically initialized'));
     return defaultConfig;
   } catch (error) {
-    spinner.fail(chalk.bold.red('Failed to initialize AstraNext UI'));
+    spinner.fail(chalk.bold.red('Failed to initialize Astra'));
     console.error(chalk.red(error.message));
     process.exit(1);
   }
@@ -62,19 +62,18 @@ async function autoInitialize(options) {
  */
 export async function add(components, options) {
   separator();
-  console.log(chalk.bold.cyan(`AstraNext UI Component Installation`));
-  console.log(chalk.dim(`Date: 2025-04-05 23:52:34`));
+  console.log(chalk.bold.cyan(`Astra Installation`));
   separator();
 
   let config;
 
-  // Check if project is initialized with AstraNext
-  if (!fs.existsSync('astranext.config.json')) {
-    console.log(chalk.yellow(chalk.bold('AstraNext UI is not initialized.') + ' Initializing automatically...'));
+  // Check if project is initialized with Astra
+  if (!fs.existsSync('astra.config.json')) {
+    console.log(chalk.yellow(chalk.bold('Astra is not initialized.') + ' Initializing automatically...'));
     config = await autoInitialize(options);
   } else {
     // Load existing configuration
-    config = await fs.readJSON('astranext.config.json');
+    config = await fs.readJSON('astra.config.json');
   }
 
   const componentsPath = options.path || config.ui.components.path;

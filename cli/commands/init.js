@@ -11,12 +11,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const separator = () => console.log(chalk.dim('─'.repeat(60)));
 
 /**
- * Initialize AstraNext UI in the current project
+ * Initialize Astra in the current project
  * @param {Object} options - Configuration options
  */
 export async function init(options) {
   separator();
-  console.log(chalk.bold.cyan('AstraNext UI Setup'));
+  console.log(chalk.bold.cyan('Astra Setup'));
   separator();
 
   // Check if the project has a package.json
@@ -66,13 +66,13 @@ export async function init(options) {
 
   // Write configuration with spinner
   const configSpinner = ora({
-    text: 'Creating AstraNext UI configuration',
+    text: 'Creating Astra configuration',
     color: 'cyan'
   }).start();
 
   try {
-    await fs.writeJSON('astranext.config.json', config, { spaces: 2 });
-    configSpinner.succeed(chalk.bold('AstraNext UI configuration created successfully'));
+    await fs.writeJSON('astra.config.json', config, { spaces: 2 });
+    configSpinner.succeed(chalk.bold('Astra configuration created successfully'));
 
     // Create the components directory with spinner
     const dirSpinner = ora({
@@ -149,7 +149,7 @@ export function cn(...inputs: ClassValue[]) {
     // Final success message
     separator();
     console.log(chalk.bold.green('INSTALLATION COMPLETE'));
-    console.log(chalk.bold('AstraNext UI is ready to use'));
+    console.log(chalk.bold('Astra is ready to use'));
     separator();
 
     // Next steps
@@ -161,7 +161,7 @@ export function cn(...inputs: ClassValue[]) {
     separator();
 
   } catch (error) {
-    configSpinner.fail('Failed to create AstraNext UI configuration');
+    configSpinner.fail('Failed to create Astra configuration');
     console.error(chalk.red(`Error: ${error.message}`));
     separator();
     process.exit(1);

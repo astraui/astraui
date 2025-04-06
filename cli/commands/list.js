@@ -15,7 +15,7 @@ const separator = () => console.log(chalk.dim('─'.repeat(60)));
  */
 export async function listComponents() {
   separator();
-  console.log(chalk.bold.cyan(`AstraNext UI Component Library`));
+  console.log(chalk.bold.cyan(`Astra Library`));
   separator();
 
   try {

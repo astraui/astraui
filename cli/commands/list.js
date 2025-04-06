@@ -103,11 +103,11 @@ export async function listComponents() {
 
     separator();
     console.log(chalk.bold('Installation Instructions:'));
-    console.log(`Run ${chalk.cyan('astranext add <component-name>')} to add a component`);
-    console.log(`Example: ${chalk.cyan('astranext add button card accordion')}`);
+    console.log(`Run ${chalk.cyan('astui add <component-name>')} to add a component`);
+    console.log(`Example: ${chalk.cyan('astui add button card accordion')}`);
 
     // Show additional help
-    console.log(`\n${chalk.dim('For more options, run:')} ${chalk.cyan('astranext add --help')}`);
+    console.log(`\n${chalk.dim('For more options, run:')} ${chalk.cyan('astui add --help')}`);
     separator();
 
   } catch (error) {

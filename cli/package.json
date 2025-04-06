@@ -1,6 +1,6 @@
 {
-  "name": "astranext",
-  "version": "0.2.6",
+  "name": "astui",
+  "version": "0.1.0",
   "description": "Design. Build. Empower.",
   "main": "index.js",
   "bin": {

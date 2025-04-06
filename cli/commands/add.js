@@ -203,7 +203,7 @@ async function autoInitialize(options) {
  */
 export async function add(components, options) {
   separator();
-  console.log(chalk.bold.cyan(`Astra Component Installation`));
+  console.log(chalk.bold.cyan(`Astra Installation`));
   console.log(chalk.dim(getCurrentDateTime()));
   separator();
 
@@ -327,7 +327,7 @@ export async function add(components, options) {
     console.log(chalk.red.bold(`\nFailures`));
     console.log(chalk.red(`Failed to add ${chalk.bold(failedComponents.size)} component(s):`));
     console.log(chalk.red(`  ${Array.from(failedComponents).join(', ')}`));
-    console.log(chalk.yellow(`\nRun ${chalk.bold('astranext list')} to verify available components.`));
+    console.log(chalk.yellow(`\nRun ${chalk.bold('astui list')} to verify available components.`));
   }
 
   separator();

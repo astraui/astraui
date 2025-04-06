@@ -9,7 +9,7 @@ const program = new Command();
 
 // CLI metadata with modernized styling
 program
-  .name(chalk.bold.cyan('astranext'))
+  .name(chalk.bold.cyan('astui'))
   .description(chalk.bold('Design. Build. Empower.'))
   .version(chalk.gray('0.1.0'));
 
@@ -34,8 +34,8 @@ program
     if (components.length === 0) {
       console.log(chalk.bold.red('ERROR: No components specified'));
       console.log(chalk.dim('-'.repeat(50)));
-      console.log(`${chalk.dim('USAGE:')} ${chalk.bold('astranext add')} ${chalk.italic('<component>')}`);
-      console.log(`${chalk.dim('HELP:')}  ${chalk.bold('astranext list')} to see available components`);
+      console.log(`${chalk.dim('USAGE:')} ${chalk.bold('astui add')} ${chalk.italic('<component>')}`);
+      console.log(`${chalk.dim('HELP:')}  ${chalk.bold('astui list')} to see available components`);
       console.log(chalk.dim('-'.repeat(50)));
       process.exit(1);
     }
@@ -53,7 +53,7 @@ program
 // Handle unknown commands with helpful message
 program.on('command:*', () => {
   console.log(chalk.bold.red(`Invalid command: ${chalk.yellow(program.args.join(' '))}`));
-  console.log(`For available commands, run: ${chalk.cyan('astranext --help')}`);
+  console.log(`For available commands, run: ${chalk.cyan('astui --help')}`);
   process.exit(1);
 });
 
@@ -61,13 +61,13 @@ program.on('command:*', () => {
 const originalHelp = program.helpInformation;
 program.helpInformation = function () {
   const help = originalHelp.call(this);
-  return `${chalk.bold.cyan('ASTRA UI CLI')}\n${chalk.gray('v0.1.0')}\n\n${help}`;
+  return `${chalk.bold.cyan('ASTRA')}\n${chalk.gray('v0.1.0')}\n\n${help}`;
 };
 
 // Display a hint when no arguments are provided
 if (process.argv.length <= 2) {
-  console.log(`\n${chalk.bold.cyan('ASTRANEXT CLI')} ${chalk.gray('v0.1.0')}`);
-  console.log(`${chalk.dim('Run')} ${chalk.cyan('astranext --help')} ${chalk.dim('to see available commands.')}\n`);
+  console.log(`\n${chalk.bold.cyan('ASTRA CLI')} ${chalk.gray('v0.1.0')}`);
+  console.log(`${chalk.dim('Run')} ${chalk.cyan('astui --help')} ${chalk.dim('to see available commands.')}\n`);
   process.exit(0);
 }
 

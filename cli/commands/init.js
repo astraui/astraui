@@ -155,9 +155,9 @@ export function cn(...inputs: ClassValue[]) {
     // Next steps
     console.log(chalk.bold('Next Steps:'));
     console.log(`  ${chalk.dim('1.')} Add components:`);
-    console.log(`     ${chalk.cyan('astranext add <component>')}`);
+    console.log(`     ${chalk.cyan('astui add <component>')}`);
     console.log(`  ${chalk.dim('2.')} List available components:`);
-    console.log(`     ${chalk.cyan('astranext list')}`);
+    console.log(`     ${chalk.cyan('astui list')}`);
     separator();
 
   } catch (error) {

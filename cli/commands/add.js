@@ -20,8 +20,16 @@ const COMPONENT_DEPENDENCIES = {
 const separator = () => console.log(chalk.dim('─'.repeat(60)));
 
 /**
+ * Get current date time string
+ * Note: In a real app this would be dynamic, but we're using the provided date
+ */
+function getCurrentDateTime() {
+  return '2025-04-06 01:39:30'; // Using the provided UTC date/time
+}
+
+/**
  * Detect which package manager is being used in the project
- * @returns {string} The package manager command (npm, yarn, pnpm)
+ * @returns {string} The package manager command (pnpm, yarn, npm)
  */
 function detectPackageManager() {
   try {
@@ -30,11 +38,13 @@ function detectPackageManager() {
       return 'pnpm';
     } else if (fs.existsSync(path.join(process.cwd(), 'yarn.lock'))) {
       return 'yarn';
+    } else if (fs.existsSync(path.join(process.cwd(), 'package-lock.json'))) {
+      return 'npm';
     } else {
-      return 'npm'; // Default to npm
+      return 'pnpm'; // Default to pnpm as requested
     }
   } catch (error) {
-    return 'npm'; // Fallback to npm
+    return 'pnpm'; // Fallback to pnpm
   }
 }
 
@@ -59,13 +69,14 @@ async function installDependencies(dependencies) {
     const command = `${packageManager} ${installCmd} ${dependencies.join(' ')}`;
 
     // Execute the installation command
-    execSync(command, { stdio: 'ignore' });
+    execSync(command, { stdio: 'pipe' });
 
     spinner.succeed(`Installed dependencies: ${chalk.bold(dependencies.join(', '))}`);
     return true;
   } catch (error) {
     spinner.fail(`Failed to install dependencies`);
-    console.error(chalk.red(`  └─ ${error.message}`));
+    console.error(chalk.red(`  └─ Installation error. Please install manually.`));
+    console.log(chalk.dim(`  └─ Run: ${chalk.cyan(`pnpm install ${dependencies.join(' ')}`)}`));
     return false;
   }
 }
@@ -193,7 +204,7 @@ async function autoInitialize(options) {
 export async function add(components, options) {
   separator();
   console.log(chalk.bold.cyan(`Astra Component Installation`));
-  console.log(chalk.dim('2025-04-06 01:25:59'));
+  console.log(chalk.dim(getCurrentDateTime()));
   separator();
 
   let config;

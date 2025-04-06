@@ -19,6 +19,82 @@ const COMPONENT_DEPENDENCIES = {
 const separator = () => console.log(chalk.dim('─'.repeat(60)));
 
 /**
+ * Ensures the lib/utils.ts file exists with the cn utility function
+ * @param {boolean} useTypeScript - Whether to create a TypeScript or JavaScript file
+ * @returns {Promise<void>}
+ */
+async function ensureUtilsFileExists(useTypeScript = true) {
+  const utilsFileName = useTypeScript ? 'utils.ts' : 'utils.js';
+  const utilsFilePath = path.join(process.cwd(), 'lib', utilsFileName);
+  const libDirPath = path.join(process.cwd(), 'lib');
+
+  // Check if the file already exists
+  if (fs.existsSync(utilsFilePath)) {
+    return;
+  }
+
+  // Create the lib directory if it doesn't exist
+  const dirSpinner = ora({
+    text: 'Creating lib directory',
+    color: 'cyan'
+  }).start();
+
+  try {
+    await fs.ensureDir(libDirPath);
+    dirSpinner.succeed(`Created lib directory at ${chalk.dim('./lib')}`);
+  } catch (error) {
+    dirSpinner.info(`Lib directory already exists at ${chalk.dim('./lib')}`);
+  }
+
+  // Create the utils file with the cn function
+  const fileSpinner = ora({
+    text: `Creating ${utilsFileName} file`,
+    color: 'cyan'
+  }).start();
+
+  try {
+    const utilsContent = `import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+ 
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}`;
+
+    await fs.writeFile(utilsFilePath, utilsContent);
+    fileSpinner.succeed(`Created ${chalk.dim(`./lib/${utilsFileName}`)} with cn utility function`);
+
+    // Check for required dependencies
+    const depsSpinner = ora({
+      text: 'Checking required dependencies',
+      color: 'cyan'
+    }).start();
+
+    const requiredDeps = ['clsx', 'tailwind-merge'];
+    const packageJsonPath = path.join(process.cwd(), 'package.json');
+
+    if (fs.existsSync(packageJsonPath)) {
+      const packageJson = await fs.readJSON(packageJsonPath);
+      const missingDeps = requiredDeps.filter(dep =>
+        !packageJson.dependencies?.[dep] && !packageJson.devDependencies?.[dep]
+      );
+
+      if (missingDeps.length > 0) {
+        depsSpinner.warn('Required dependencies missing');
+        console.log(chalk.yellow(`Please install: ${chalk.white(missingDeps.join(', '))}`));
+        console.log(chalk.dim(`Run: ${chalk.cyan(`npm install ${missingDeps.join(' ')}`)}`));
+      } else {
+        depsSpinner.succeed('All required dependencies are installed');
+      }
+    } else {
+      depsSpinner.warn('Could not check dependencies (package.json not found)');
+    }
+  } catch (error) {
+    fileSpinner.fail(`Could not create ${chalk.dim(`./lib/${utilsFileName}`)}`);
+    console.error(chalk.red(error.message));
+  }
+}
+
+/**
  * Automatically initializes the project with default configuration
  * @param {Object} options - Configuration options
  * @returns {Object} The created configuration
@@ -62,7 +138,8 @@ async function autoInitialize(options) {
  */
 export async function add(components, options) {
   separator();
-  console.log(chalk.bold.cyan(`Astra Installation`));
+  console.log(chalk.bold.cyan(`Astra Component Installation`));
+  console.log(chalk.dim('2025-04-06 01:16:10'));
   separator();
 
   let config;
@@ -82,6 +159,9 @@ export async function add(components, options) {
   console.log(chalk.dim(`Target directory: ${chalk.white(componentsPath)}`));
   console.log(chalk.dim(`TypeScript: ${useTypeScript ? chalk.white('enabled') : chalk.white('disabled')}`));
   separator();
+
+  // Ensure the lib/utils file exists
+  await ensureUtilsFileExists(useTypeScript);
 
   // Ensure the components directory exists
   await fs.ensureDir(componentsPath);

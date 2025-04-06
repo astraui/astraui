@@ -13,7 +13,7 @@ const COMPONENTS_PATH = join(__dirname, '../components/ui');
 
 // Map of component dependencies
 const COMPONENT_DEPENDENCIES = {
-  'accordion': ['collapsible'],
+  'Accordion': ['Collapsible'],
 };
 
 // Modern separator for visual breaks
@@ -86,7 +86,7 @@ async function installDependencies(dependencies) {
 }
 
 /**
- * Ensures the lib/utils.ts file exists with the cn utility function
+ * Ensures the lib/utils.ts file exists with the cn utility function and class-variance-authority
  * @param {boolean} useTypeScript - Whether to create a TypeScript or JavaScript file
  * @returns {Promise<void>}
  */
@@ -94,11 +94,6 @@ async function ensureUtilsFileExists(useTypeScript = true) {
   const utilsFileName = useTypeScript ? 'utils.ts' : 'utils.js';
   const utilsFilePath = path.join(process.cwd(), 'lib', utilsFileName);
   const libDirPath = path.join(process.cwd(), 'lib');
-
-  // Check if the file already exists
-  if (fs.existsSync(utilsFilePath)) {
-    return;
-  }
 
   // Create the lib directory if it doesn't exist
   const dirSpinner = ora({
@@ -113,53 +108,169 @@ async function ensureUtilsFileExists(useTypeScript = true) {
     dirSpinner.info(`Lib directory already exists at ${chalk.dim('./lib')}`);
   }
 
-  // Create the utils file with the cn function
-  const fileSpinner = ora({
-    text: `Creating ${utilsFileName} file`,
-    color: 'cyan'
-  }).start();
+  let existingContent = '';
+  let hasCvaImport = false;
 
-  try {
-    const utilsContent = `import { type ClassValue, clsx } from "clsx";
+  // Check if the file already exists and read its content
+  if (fs.existsSync(utilsFilePath)) {
+    existingContent = await fs.readFile(utilsFilePath, 'utf8');
+    hasCvaImport = existingContent.includes('from "class-variance-authority"');
+
+    if (hasCvaImport) {
+      const infoSpinner = ora({
+        text: 'Checking for class-variance-authority',
+        color: 'cyan'
+      }).start();
+      infoSpinner.succeed(`class-variance-authority import already exists in ${chalk.dim(`./lib/${utilsFileName}`)}`);
+    }
+  }
+
+  // Create or update the file if needed
+  if (!existingContent || !hasCvaImport) {
+    const fileSpinner = ora({
+      text: existingContent ? `Updating ${utilsFileName} file` : `Creating ${utilsFileName} file`,
+      color: 'cyan'
+    }).start();
+
+    try {
+      let utilsContent;
+
+      if (!existingContent) {
+        // Create a new file with both utilities
+        utilsContent = `import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { cva, type VariantProps } from "class-variance-authority";
  
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }`;
+      } else {
+        // Add the cva import to the existing content
+        utilsContent = `import { cva, type VariantProps } from "class-variance-authority";
+${existingContent}`;
+      }
 
-    await fs.writeFile(utilsFilePath, utilsContent);
-    fileSpinner.succeed(`Created ${chalk.dim(`./lib/${utilsFileName}`)} with cn utility function`);
+      await fs.writeFile(utilsFilePath, utilsContent);
+      fileSpinner.succeed(`${existingContent ? 'Updated' : 'Created'} ${chalk.dim(`./lib/${utilsFileName}`)} with ${existingContent ? 'class-variance-authority import' : 'cn utility function and class-variance-authority import'}`);
+    } catch (error) {
+      fileSpinner.fail(`Could not ${existingContent ? 'update' : 'create'} ${chalk.dim(`./lib/${utilsFileName}`)}`);
+      console.error(chalk.red(error.message));
+    }
+  }
 
-    // Check for required dependencies
-    const depsSpinner = ora({
-      text: 'Checking required dependencies',
-      color: 'cyan'
-    }).start();
+  // Always check for required dependencies regardless of file update
+  const depsSpinner = ora({
+    text: 'Checking required dependencies',
+    color: 'cyan'
+  }).start();
 
-    const requiredDeps = ['clsx', 'tailwind-merge'];
-    const packageJsonPath = path.join(process.cwd(), 'package.json');
+  // Added motion and lucide-react to the required dependencies
+  const requiredDeps = ['clsx', 'tailwind-merge', 'class-variance-authority', 'motion', 'lucide-react'];
+  const packageJsonPath = path.join(process.cwd(), 'package.json');
 
-    if (fs.existsSync(packageJsonPath)) {
+  if (fs.existsSync(packageJsonPath)) {
+    try {
       const packageJson = await fs.readJSON(packageJsonPath);
-      const missingDeps = requiredDeps.filter(dep =>
-        !packageJson.dependencies?.[dep] && !packageJson.devDependencies?.[dep]
-      );
 
-      if (missingDeps.length > 0) {
+      // Check for both motion and framer-motion since motion is the new name for framer-motion
+      const missingDeps = requiredDeps.filter(dep => {
+        if (dep === 'motion') {
+          // Check if either motion or framer-motion is installed
+          const hasMotion = packageJson.dependencies?.['motion'] || packageJson.devDependencies?.['motion'];
+          const hasFramerMotion = packageJson.dependencies?.['framer-motion'] || packageJson.devDependencies?.['framer-motion'];
+          return !hasMotion && !hasFramerMotion;
+        }
+        return !packageJson.dependencies?.[dep] && !packageJson.devDependencies?.[dep];
+      });
+
+      // Replace 'motion' with 'framer-motion' in the dependencies list as that's the actual package name
+      const installDeps = missingDeps.map(dep => dep === 'motion' ? 'framer-motion' : dep);
+
+      if (installDeps.length > 0) {
         depsSpinner.succeed('Dependencies check completed');
 
         // Install missing dependencies automatically
-        console.log(chalk.dim(`Installing required dependencies: ${chalk.white(missingDeps.join(', '))}`));
-        await installDependencies(missingDeps);
+        console.log(chalk.dim(`Installing required dependencies: ${chalk.white(installDeps.join(', '))}`));
+        await installDependencies(installDeps);
       } else {
         depsSpinner.succeed('All required dependencies are installed');
       }
-    } else {
-      depsSpinner.warn('Could not check dependencies (package.json not found)');
+    } catch (error) {
+      depsSpinner.fail(`Failed to check dependencies: ${error.message}`);
     }
-  } catch (error) {
-    fileSpinner.fail(`Could not create ${chalk.dim(`./lib/${utilsFileName}`)}`);
-    console.error(chalk.red(error.message));
+  } else {
+    depsSpinner.warn('Could not check dependencies (package.json not found)');
+  }
+}
+
+/**
+ * Ensures that motion (formerly framer-motion) is installed 
+ * @returns {Promise<void>}
+ */
+async function ensureMotionIsInstalled() {
+  const spinner = ora({
+    text: 'Checking for motion/framer-motion',
+    color: 'cyan'
+  }).start();
+
+  const packageJsonPath = path.join(process.cwd(), 'package.json');
+
+  if (fs.existsSync(packageJsonPath)) {
+    try {
+      const packageJson = await fs.readJSON(packageJsonPath);
+
+      // Check if either motion or framer-motion is installed
+      const hasMotion = packageJson.dependencies?.['motion'] || packageJson.devDependencies?.['motion'];
+      const hasFramerMotion = packageJson.dependencies?.['framer-motion'] || packageJson.devDependencies?.['framer-motion'];
+
+      if (!hasMotion && !hasFramerMotion) {
+        spinner.info('Motion/framer-motion not found. Installing framer-motion...');
+
+        // Install framer-motion
+        await installDependencies(['framer-motion']);
+      } else {
+        spinner.succeed(`Motion${hasFramerMotion ? ' (as framer-motion)' : ''} is already installed`);
+      }
+    } catch (error) {
+      spinner.fail(`Failed to check for motion/framer-motion: ${error.message}`);
+    }
+  } else {
+    spinner.warn('Could not check for motion/framer-motion (package.json not found)');
+  }
+}
+
+/**
+ * Ensures that lucide-react is installed
+ * @returns {Promise<void>}
+ */
+async function ensureLucideReactIsInstalled() {
+  const spinner = ora({
+    text: 'Checking for lucide-react',
+    color: 'cyan'
+  }).start();
+
+  const packageJsonPath = path.join(process.cwd(), 'package.json');
+
+  if (fs.existsSync(packageJsonPath)) {
+    try {
+      const packageJson = await fs.readJSON(packageJsonPath);
+
+      // Check if lucide-react is installed
+      const hasLucideReact = packageJson.dependencies?.['lucide-react'] || packageJson.devDependencies?.['lucide-react'];
+
+      if (!hasLucideReact) {
+        spinner.info('lucide-react not found. Installing...');
+
+        // Install lucide-react
+        await installDependencies(['lucide-react']);
+      } else {
+        spinner.succeed('lucide-react is already installed');
+      }
+    } catch (error) {
+      spinner.fail(`Failed to check for lucide-react: ${error.message}`);
+    }
+  } else {
+    spinner.warn('Could not check for lucide-react (package.json not found)');
   }
 }
 
@@ -229,8 +340,14 @@ export async function add(components, options) {
   console.log(chalk.dim(`TypeScript: ${useTypeScript ? chalk.white('enabled') : chalk.white('disabled')}`));
   separator();
 
-  // Ensure the lib/utils file exists
+  // Ensure the lib/utils file exists with class-variance-authority
   await ensureUtilsFileExists(useTypeScript);
+
+  // Ensure motion/framer-motion is installed
+  await ensureMotionIsInstalled();
+
+  // Ensure lucide-react is installed
+  await ensureLucideReactIsInstalled();
 
   // Ensure the components directory exists
   await fs.ensureDir(componentsPath);

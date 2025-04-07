@@ -1,10 +1,10 @@
 {
   "name": "astui",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Design. Build. Empower.",
   "main": "index.js",
   "bin": {
-    "astranext": "index.js"
+    "astui": "index.js"
   },
   "type": "module",
   "scripts": {

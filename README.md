@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://www.links.egeuysal.com/">
     <img src="https://res.cloudinary.com/dpgeyzgaw/image/upload/v1743809631/Astra/astra-logo.png" height="96">
-    <h3 align="center">Astra</h3>
+    <h3 align="center">Astra UI</h3>
   </a>
 </p>
 

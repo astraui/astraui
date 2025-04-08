@@ -19,6 +19,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { IoIosClose } from "react-icons/io";
+import { RxHamburgerMenu } from "react-icons/rx";
+import menuItems from '../../../app/menuItems'
 
 const Header: FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -50,55 +52,12 @@ const Header: FC = () => {
     };
   }, [mobileMenuOpen]);
 
-  const menuItems = [
-    {
-      id: "documentation",
-      title: "Documentation",
-      links: [
-        { href: "/docs/getting-started", text: "Getting started" },
-        { href: "/docs/changelog", text: "Changelog" }
-      ]
-    },
-    {
-      id: "links",
-      title: "Links",
-      links: [
-        { href: "/links/our-links", text: "Our links" },
-        { href: "/#newsletter", text: "Newsletter" }
-      ]
-    },
-    {
-      id: "discover",
-      title: "Discover",
-      links: [
-        { href: "/discover/featured-links", text: "Featured links" },
-        { href: "/discover/tips", text: "Tips" }
-      ]
-    },
-    {
-      id: "create",
-      title: "Create",
-      links: [
-        { href: "/create/new-links", text: "New links" },
-        { href: "/create/new-links#customize", text: "Customize" }
-      ]
-    },
-    {
-      id: "contact",
-      title: "Contact",
-      links: [
-        { href: "mailto:hello@egeuysal.com", text: "Support" },
-        { href: "/#contact", text: "Feedback" }
-      ]
-    }
-  ];
-
   return (
     <div className="fixed top-6 left-0 right-0 z-10 flex justify-center w-full ">
       <motion.div className="relative w-[90vw] md:w-[95vw]">
         <motion.header
           className="backdrop-blur-lg 
-bg-white/75 dark:bg-black/75 py-3.5 rounded-lg flex justify-between relative z-10"
+bg-white/75 dark:bg-black/75 py-3 rounded-lg flex justify-between relative z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 }}
@@ -139,11 +98,7 @@ bg-white/75 dark:bg-black/75 py-3.5 rounded-lg flex justify-between relative z-1
               {mobileMenuOpen ? (
                 <IoIosClose size={28} className="text-black dark:text-white" />
               ) : (
-                <div className="space-y-1.5">
-                  <span className="block w-6 h-0.5 bg-black dark:bg-white"></span>
-                  <span className="block w-6 h-0.5 bg-black dark:bg-white"></span>
-                  <span className="block w-6 h-0.5 bg-black dark:bg-white"></span>
-                </div>
+                <RxHamburgerMenu size="28" className="text-black dark:text-white" />
               )}
             </button>
           </NavigationMenu>
@@ -152,7 +107,7 @@ bg-white/75 dark:bg-black/75 py-3.5 rounded-lg flex justify-between relative z-1
           <AnimatePresence>
             {scrolled && (
               <motion.div
-                className="absolute inset-0 rounded-lg border border-[#2e2e2e] pointer-events-none"
+                className="absolute inset-0 rounded-lg border dark:border-[#2e2e2e] border-[#F2F2F2] pointer-events-none"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -176,12 +131,12 @@ bg-white/75 dark:bg-black/75 py-3.5 rounded-lg flex justify-between relative z-1
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="flex justify-between items-center p-6 border-b border-[#2e2e2e]">
+            <div className="flex justify-between items-center p-6 border-b dark:border-[#2e2e2e] border-[#f2f2f2]">
               <Link href="/" className="flex items-center">
                 <Image
                   width={20}
                   height={20}
-                  className="transition hover:opacity-75 dark:Invert"
+                  className="transition hover:opacity-75 dark:invert"
                   alt="Logo"
                   src="/logos/header-logo.svg"
                   onClick={() => setMobileMenuOpen(false)}
@@ -211,7 +166,7 @@ bg-white/75 dark:bg-black/75 py-3.5 rounded-lg flex justify-between relative z-1
                       transition={{ duration: 0.2, delay: i * 0.03 }}
                       className="w-full"
                     >
-                      <AccordionItem value={item.id} className="border-b border-[#2e2e2e] w-full">
+                      <AccordionItem value={item.id} className="border-b dark:border-[#2e2e2e] border-[#f2f2f2] w-full">
                         <AccordionTrigger className="font-bold text-2xl text-black dark:text-white py-4 w-full text-center flex justify-center">
                           <div className="flex items-center justify-center">
                             {item.title}
@@ -245,8 +200,8 @@ bg-white/75 dark:bg-black/75 py-3.5 rounded-lg flex justify-between relative z-1
               </div>
             </div>
 
-            <div className="py-4 w-full text-center text-black dark:text-white border-t border-[#2e2e2e]">
-              <p className="font-medium text-sm">&copy; {year} Links</p>
+            <div className="py-4 w-full text-center text-black dark:text-white border-t border-[#f2f2f2] dark:border-[#2e2e2e]">
+              <p className="font-medium w-full text-sm">&copy; {year} Astra UI</p>
             </div>
           </motion.div>
         )}

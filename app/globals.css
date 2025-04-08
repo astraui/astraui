@@ -1,26 +1,75 @@
+/* Import Tailwind CSS */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Theme Configuration */
+@theme {
+  --color-dark-gray: #2E2E2E;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Base Layer */
+@layer base {
+  /* Base body styles */
+  body {
+    @apply bg-white dark:bg-black;
+    font-family: var(--font-inter);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Heading typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-geist);
+    @apply tracking-tighter text-black dark:text-white font-bold w-3/4;
+  }
+
+  /* Code typography */
+  code,
+  pre {
+    font-family: var(--font-geist-mono);
+  }
+
+  /* H1 specific styling */
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg lg:text-xl;
+  }
+
+  p {
+    @apply text-base md:text-lg;
+    @apply tracking-tight text-black dark:text-white w-3/4;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Components Layer */
+@layer components {
+  .card {
+    @apply bg-white rounded-md py-3 px-5 m-8 font-bold text-lg text-black;
+  }
+}
+
+/* Custom Utilities */
+@utility flex-center {
+  @apply flex w-full items-center flex-col;
 }

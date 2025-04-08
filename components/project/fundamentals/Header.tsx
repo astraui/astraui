@@ -108,7 +108,7 @@ bg-white/75 dark:bg-black/75 py-3.5 rounded-lg flex justify-between relative z-1
               <Image
                 width={20}
                 height={20}
-                className="ml-4 transition hover:opacity-75"
+                className="ml-4 transition hover:opacity-75 dark:invert"
                 alt="Logo"
                 src="/logos/header-logo.svg"
               />
@@ -181,7 +181,7 @@ bg-white/75 dark:bg-black/75 py-3.5 rounded-lg flex justify-between relative z-1
                 <Image
                   width={20}
                   height={20}
-                  className="transition hover:opacity-75"
+                  className="transition hover:opacity-75 dark:Invert"
                   alt="Logo"
                   src="/logos/header-logo.svg"
                   onClick={() => setMobileMenuOpen(false)}

@@ -72,7 +72,7 @@ bg-white/75 dark:bg-black/75 py-3 rounded-lg flex justify-between relative z-10"
                 src="/logos/header-logo.svg"
               />
             </Link>
-            <p className="font-bold hidden md:flex">Astra UI</p>
+            <p className="font-bold hidden w-full md:flex">Astra UI</p>
           </aside>
           <NavigationMenu className="items-center justify-center">
             <NavigationMenuList className="font-bold text-black dark:text-white flex">
@@ -144,7 +144,7 @@ bg-white/75 dark:bg-black/75 py-3 rounded-lg flex justify-between relative z-10"
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-black dark:text-white text-3xl"
+                className="text-black dark:text-white text-3lg"
                 aria-label="Close menu"
               >
                 <IoIosClose />
@@ -167,7 +167,7 @@ bg-white/75 dark:bg-black/75 py-3 rounded-lg flex justify-between relative z-10"
                       className="w-full"
                     >
                       <AccordionItem value={item.id} className="border-b dark:border-[#2e2e2e] border-[#f2f2f2] w-full">
-                        <AccordionTrigger className="font-bold text-2xl text-black dark:text-white py-4 w-full text-center flex justify-center">
+                        <AccordionTrigger className="font-bold text-2lg text-black dark:text-white py-4 w-full text-center flex justify-center">
                           <div className="flex items-center justify-center">
                             {item.title}
                           </div>
@@ -201,7 +201,7 @@ bg-white/75 dark:bg-black/75 py-3 rounded-lg flex justify-between relative z-10"
             </div>
 
             <div className="py-4 w-full text-center text-black dark:text-white border-t border-[#f2f2f2] dark:border-[#2e2e2e]">
-              <p className="font-medium w-full text-sm">&copy; {year} Astra UI</p>
+              <p className="text-black/50 dark:text-white/50 w-full text-sm">&copy; {year} Astra UI</p>
             </div>
           </motion.div>
         )}

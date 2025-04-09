@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${geist.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${geist.variable} ${geistMono.variable} pb-24`}>
       <body className="w-full h-full flex-center">
         <main className="w-[90vw] md:w-[92.5vw] lg:w-[95vw]">
           <div className="mb-32">

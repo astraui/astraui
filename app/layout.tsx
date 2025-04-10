@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Inter } from 'next/font/google'
 import Header from '@/components/project/fundamentals/Header'
+import Footer from '@/components/project/fundamentals/Footer'
 
 // Initialize the Inter font
 const inter = Inter({
@@ -33,14 +34,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${geist.variable} ${geistMono.variable} pb-24`}>
+    <html lang="en" className={`${inter.variable} ${geist.variable} ${geistMono.variable} pb-18`}>
       <body className="w-full h-full flex-center">
-        <main className="w-[90vw] md:w-[92.5vw] lg:w-[95vw]">
-          <div className="mb-32">
-          <Header />
-          </div>
-          {children}
-        </main>
+          <main className="w-[90vw] md:w-[92.5vw] lg:w-[95vw]">
+            <div className="mb-32">
+              <Header />
+            </div>
+            {children}
+            <aside className="w-full flex-center mt-24">
+              <Footer />
+            </aside>
+          </main>
       </body>
     </html>
   );

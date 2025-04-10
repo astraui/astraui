@@ -14,7 +14,7 @@ const Faq: React.FC = (): React.ReactNode => {
                     What makes Links unique?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm md:text-base">
-                    It's fast, clean, and fully in your control—no clutter, just
+                    It&apos;s fast, clean, and fully in your control—no clutter, just
                     what you need.
                 </AccordionContent>
             </AccordionItem>
@@ -41,7 +41,7 @@ const Faq: React.FC = (): React.ReactNode => {
                     Is Links free to use?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm md:text-base">
-                    Yes! It's completely free, without any hidden fees or paywalls.
+                    Yes! It&apos;s completely free, without any hidden fees or paywalls.
                 </AccordionContent>
             </AccordionItem>
         </Accordion>

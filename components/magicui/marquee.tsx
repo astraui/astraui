@@ -41,7 +41,6 @@ export function Marquee({
   pauseOnHover = false,
   children,
   vertical = false,
-  margin = 4,
   ...props
 }: MarqueeProps) {
   const containerRef = useRef<HTMLDivElement>(null);

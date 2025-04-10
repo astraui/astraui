@@ -57,7 +57,7 @@ const Header: FC = () => {
       <motion.div className="relative w-[90vw] md:w-[95vw]">
         <motion.header
           className="backdrop-blur-lg 
-bg-white/75 dark:bg-black/75 py-3 rounded-lg flex justify-between relative z-10"
+bg-white/75 dark:bg-black/75 py-3 px-2 rounded-lg flex justify-between relative z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 }}
@@ -96,7 +96,7 @@ bg-white/75 dark:bg-black/75 py-3 rounded-lg flex justify-between relative z-10"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {mobileMenuOpen ? (
-                <IoIosClose size={28} className="text-black dark:text-white" />
+                <IoIosClose size="28" className="text-black dark:text-white" />
               ) : (
                 <RxHamburgerMenu size="28" className="text-black dark:text-white" />
               )}
@@ -144,10 +144,10 @@ bg-white/75 dark:bg-black/75 py-3 rounded-lg flex justify-between relative z-10"
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-black dark:text-white text-3lg"
+                className="text-black dark:text-white flex items-center justify-center"
                 aria-label="Close menu"
               >
-                <IoIosClose />
+                <IoIosClose size="28" />
               </button>
             </div>
 

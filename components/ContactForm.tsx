@@ -17,7 +17,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Toaster } from "./ui/sonner";
+// Remove the Toaster import
+// import { Toaster } from "./ui/sonner";
 
 // Define form schema
 const formSchema = z.object({
@@ -70,12 +71,12 @@ export default function ContactForm() {
         try {
           const errorData = await response.json();
           errorMessage = errorData.error || errorMessage;
-        } catch (jsonError) {
+        } catch {
           // If JSON parsing fails, try to get text
           try {
-            const textError = await response.text();
-            errorMessage = textError || `Server error: ${response.status}`;
-          } catch (textError) {
+            const textContent = await response.text();
+            errorMessage = textContent || `Server error: ${response.status}`;
+          } catch {
             // If both fail, use status text
             errorMessage = `Server error: ${
               response.statusText || response.status
@@ -86,11 +87,10 @@ export default function ContactForm() {
       }
 
       // Only parse JSON if response was OK
-      let result;
       try {
-        result = await response.json();
-      } catch (jsonError) {
-        console.error("Error parsing response:", jsonError);
+        await response.json();
+      } catch {
+        console.error("Error parsing response");
         throw new Error("Invalid response from server");
       }
 
@@ -116,7 +116,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <Toaster />
+      {/* Toaster component removed from here */}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-full" id="contact">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -199,7 +199,7 @@ export default function ContactForm() {
             className="btn-1 w-full flex-1 flex-center" 
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Sending..." : "Send Message"}
+            {isSubmitting ? "Sending..." : "Send message"}
           </Button>
         </form>
       </Form>

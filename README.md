@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://www.links.egeuysal.com/">
     <img src="https://res.cloudinary.com/dpgeyzgaw/image/upload/v1743809631/Astra/astra-logo.png" height="96">
-    <h3 align="center">Astra</h3>
+    <h3 align="center">Astra UI</h3>
   </a>
 </p>
 
@@ -17,9 +17,9 @@
   </strong>
 </p>
 
-## Astra
+## Astra UI
 
-**Astra** is a beautifully designed UI library for Next.js. A set of accessible, production-ready components and a seamless code distribution platform. Open source. Open code. Ready to power your next idea.
+**Astra** UI is a beautifully designed UI library for Next.js. A set of accessible, production-ready components and a seamless code distribution platform. Open source. Open code. Ready to power your next idea.
 
 ### Features
 

@@ -3,10 +3,12 @@ export type Image = {
 };
 
 const tools: Image[] = [
-  { toolImage: "/image1.png" },
-  { toolImage: "/image2.png" },
-  { toolImage: "/image3.png" },
-  { toolImage: "/image4.png" },
+  { toolImage: "/brands/angular-logo.svg" },
+  { toolImage: "/brands/astro-logo.svg" },
+  { toolImage: "/brands/nextjs-logo.svg" },
+  { toolImage: "/brands/react-logo.svg" },
+  { toolImage: "/brands/svelte-logo.svg" },
+  { toolImage: "/brands/vite-logo.svg" },
 ];
 
 export default tools;

@@ -11,8 +11,11 @@ const Framework: React.FC<FrameworkProps> = ({ frameworkImage }) => {
         <Image
             src={frameworkImage}
             alt={`${frameworkImage} icon`}
-            width={96}
-            height={96}
+            width={64}
+            height={64}
+            className={cn(
+                "relative dark:invert cursor-pointer overflow-hidden mx-8",
+            )}
         />
     );
 };

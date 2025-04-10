@@ -87,7 +87,7 @@ export default function StartNewsletter() {
               name="firstName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="form-label">
+                  <FormLabel className="form-label font-bold">
                     First name
                   </FormLabel>
                   <FormControl>
@@ -108,7 +108,7 @@ export default function StartNewsletter() {
               name="lastName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="form-label">
+                  <FormLabel className="form-label font-bold">
                     Last name
                   </FormLabel>
                   <FormControl>
@@ -125,13 +125,13 @@ export default function StartNewsletter() {
             />
           </div>
 
-          <div className="lg:grid lg:grid-cols-4 lg:gap-4 lg:items-end space-y-4 lg:space-y-0">
+          <div className="lg:grid grid-cols-1 lg:grid-cols-4 lg:gap-4 lg:items-end space-y-4 lg:space-y-0">
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
                 <FormItem className="lg:col-span-3">
-                  <FormLabel className="form-label">
+                  <FormLabel className="form-label font-bold">
                     Email
                   </FormLabel>
                   <FormControl>
@@ -149,7 +149,7 @@ export default function StartNewsletter() {
             />
             <Button
               type="submit"
-              className="btn-1"
+              className="btn-1 col-span-1 w-full flex-1 flex-center font-bold"
               disabled={isLoading}
             >
               {isLoading ? "Subscribing..." : "Subscribe"}

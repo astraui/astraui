@@ -8,6 +8,9 @@ import { LuCommand } from "react-icons/lu";
 import features from "./data/features"
 import { v4 as uuidv4 } from 'uuid';
 import StartNewsletter from "@/components/StartNewsletter"
+import Faq from "@/components/project/landing/Faq"
+import CarouselDemo from "@/components/project/landing/OurComponents"
+import ContactForm from "@/components/ContactForm"
 
 const Home: React.FC = () => {
   return (
@@ -52,8 +55,23 @@ const Home: React.FC = () => {
       </section>
       <section className="w-full flex flex-col gap-4">
         <h2>Get the latest from Astra UI.</h2>
-        <p>Stay updated with the latest components, updates, and designs from Astra UI Library</p>
+        <p>Stay updated with the latest components, updates, and designs from Astra UI library.</p>
         <StartNewsletter />
+      </section>
+      <section className="w-full flex flex-col gap-4">
+        <h2>Discover the building blocks of Astra UI.</h2>
+        <p>Check out Astra UI's collection of customizable components for building sleek, responsive websites.</p>
+        <CarouselDemo />
+      </section>
+      <section className="w-full flex flex-col gap-4">
+        <h2>Common questions, clear answers.</h2>
+        <p>Get straightforward answers to your most common questions, quickly and clearly explained.</p>
+        <Faq />
+      </section>
+      <section className="w-full flex flex-col gap-4">
+        <h2>Common questions, clear answers.</h2>
+        <p>Get straightforward answers to your most common questions, quickly and clearly explained.</p>
+        <ContactForm />
       </section>
     </main>
   );

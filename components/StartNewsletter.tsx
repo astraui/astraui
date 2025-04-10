@@ -73,7 +73,6 @@ export default function StartNewsletter() {
 
   return (
     <div className="w-full" id="newsletter">
-      {/* Moved Toaster component to root level and ensured it's from sonner directly */}
       <Toaster />
 
       <Form {...form}>
@@ -149,7 +148,7 @@ export default function StartNewsletter() {
             />
             <Button
               type="submit"
-              className="btn-1 col-span-1 w-full flex-1 flex-center font-bold"
+              className="btn-1 col-span-1 w-full flex-1 flex-center"
               disabled={isLoading}
             >
               {isLoading ? "Subscribing..." : "Subscribe"}

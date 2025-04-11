@@ -123,6 +123,11 @@
     @apply text-sm md:text-base tracking-tight;
   }
 
+  .list-item {
+    @apply text-base md:text-lg;
+    @apply tracking-tight text-black dark:text-white
+  }
+
   .dark {
     --sidebar: hsl(240 5.9% 10%);
     --sidebar-foreground: hsl(240 4.8% 95.9%);

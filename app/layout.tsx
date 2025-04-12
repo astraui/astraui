@@ -93,11 +93,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const product = await getProduct();
-
-  // Keep your original variable names
-  const currentDate = new Date().toISOString().split('.')[0] + 'Z';
-
-  // For priceValidUntil, you're already handling it correctly
   const priceValidUntilDate = new Date();
   priceValidUntilDate.setFullYear(priceValidUntilDate.getFullYear() + 1);
   const priceValidUntilString = priceValidUntilDate.toISOString().split('T')[0];
@@ -143,8 +138,7 @@ export default async function RootLayout({
         "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
         "merchantReturnDays": 30,
         "returnMethod": "https://schema.org/ReturnByMail",
-        "returnFees": "https://schema.org/FreeReturn",
-        "returnPolicyLink": "https://www.astraui.me/returns"
+        "returnFees": "https://schema.org/FreeReturn"
       }
     },
     "aggregateRating": {
@@ -156,8 +150,7 @@ export default async function RootLayout({
       "https://twitter.com/egecreates",
       "https://www.linkedin.com/in/egeuysal",
       "https://www.instagram.com/egeuysalo"
-    ],
-    "dateModified": currentDate
+    ]
   };
 
   return (

@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/docs/documentation.pdf" className="footer-text">
+                                    <Link href="/docs/getting-started" className="footer-text">
                                         Documentation
                                     </Link>
                                 </li>
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/docs/about-us.pdf" className="footer-text">
+                                    <Link href="mailto:hello@egeuysal.com" className="footer-text">
                                         Contact us
                                     </Link>
                                 </li>
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
                         <address className="mt-3 not-italic">
                             <div className="flex items-center h-full gap-4">
                                 <Link
-                                    href="https://www.links.egeuysal.com/"
+                                    href="https://www.astraui.me/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="Website"
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
                                     <FaGlobeAmericas size="28" className="text-black dark:text-white"/>
                                 </Link>
                                 <Link
-                                    href="https://github.com/egeuysall/links"
+                                    href="https://github.com/astraui/astraui"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="GitHub"

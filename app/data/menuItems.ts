@@ -1,18 +1,16 @@
 import { v4 as uuidv4 } from 'uuid';
 
-// Define types for the menu structure
+interface MenuLink {
+  href: string;
+  text: string;
+}
+
 interface MenuItem {
   id: string;
   title: string;
   links: MenuLink[];
 }
 
-interface MenuLink {
-  href: string;
-  text: string;
-}
-
-// Create the menu items with UUID for IDs
 const menuItems: MenuItem[] = [
   {
     id: uuidv4(),
@@ -24,34 +22,34 @@ const menuItems: MenuItem[] = [
   },
   {
     id: uuidv4(),
-    title: "Links",
+    title: "Components",
     links: [
-      { href: "/links/our-links", text: "Our links" },
-      { href: "/#newsletter", text: "Newsletter" }
+      { href: "/cli", text: "CLI" },
+      { href: "/components", text: "See all" }
     ]
   },
   {
     id: uuidv4(),
     title: "Discover",
     links: [
-      { href: "/discover/featured-links", text: "Featured links" },
+      { href: "/discover/featured", text: "Featured" },
       { href: "/discover/tips", text: "Tips" }
-    ]
-  },
-  {
-    id: uuidv4(),
-    title: "Create",
-    links: [
-      { href: "/create/new-links", text: "New links" },
-      { href: "/create/new-links#customize", text: "Customize" }
     ]
   },
   {
     id: uuidv4(),
     title: "Contact",
     links: [
-      { href: "mailto:hello@egeuysal.com", text: "Support" },
-      { href: "/#contact", text: "Feedback" }
+      { href: "/#contact", text: "Feedback" },
+      { href: "mailto:hello@egeuysal.com", text: "Support" }
+    ]
+  },
+  {
+    id: uuidv4(),
+    title: "Links",
+    links: [
+      { href: "/#newsletter", text: "Newsletter" },
+      { href: "https://github.com/astraui/astraui", text: "GitHub" },
     ]
   }
 ];

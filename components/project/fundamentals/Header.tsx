@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/accordion";
 import { IoIosClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
-import menuItems from '../../../app/menuItems'
+import menuItems from '../../../app/data/menuItems'
 
 const Header: FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -53,7 +53,7 @@ const Header: FC = () => {
   }, [mobileMenuOpen]);
 
   return (
-    <div className="fixed top-6 left-0 right-0 z-10 flex justify-center w-full ">
+    <div className="fixed top-6 left-0 right-0 z-100 flex justify-center w-full ">
       <motion.div className="relative w-[90vw] md:w-[95vw]">
         <motion.header
           className="backdrop-blur-lg 
@@ -67,7 +67,7 @@ bg-white/75 dark:bg-black/75 py-3 px-2 rounded-lg flex justify-between relative 
               <Image
                 width={20}
                 height={20}
-                className="ml-4 transition hover:opacity-75 dark:invert"
+                className="ml-2 transition hover:opacity-75 dark:invert"
                 alt="Logo"
                 src="/logos/header-logo.svg"
               />
@@ -89,10 +89,10 @@ bg-white/75 dark:bg-black/75 py-3 px-2 rounded-lg flex justify-between relative 
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
-
+            
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="flex md:hidden mr-4"
+              className="flex md:hidden mr-2"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {mobileMenuOpen ? (

@@ -19,7 +19,8 @@
 
   /* Base body styles */
   * {
-    @apply scroll-smooth;
+    @apply !scroll-smooth;
+    @apply !scroll-pt-72;
     @apply box-border;
   }
 
@@ -137,6 +138,10 @@
     --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
     --sidebar-border: hsl(240 3.7% 15.9%);
     --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  }
+
+  .questions {
+    font-family: var(--font-inter);
   }
 }
 

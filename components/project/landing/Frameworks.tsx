@@ -1,6 +1,6 @@
 import { Marquee } from "../../magicui/marquee";
 import Framework from "./Framework";
-import tools from "./tools";
+import tools from "../../../app/data/tools";
 
 export default function Frameworks() {
     const firstRow = tools.slice(0, Math.ceil(tools.length));

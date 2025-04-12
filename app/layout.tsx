@@ -6,7 +6,6 @@ import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Head from 'next/head'
-import Script from 'next/script'
 
 // Fonts
 import { inter, geist, geistMono } from './data/fonts'
@@ -175,7 +174,7 @@ export default async function RootLayout({
         <meta property="og:type" content="website" />
         <meta property="og:updated_time" content={currentDate} />
 
-        <Script
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(jsonLd),

@@ -1,0 +1,62 @@
+{
+    "name": "Astra UI",
+    "short_name": "Astra",
+    "description": "Astra UI is an open-source UI library for Next.js, offering accessible, production-ready components to power your next project with ease. Try it today!",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#FFFFFF",
+    "orientation": "portrait",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "/favicon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/favicon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/favicon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "lang": "en-US",
+    "dir": "ltr",
+    "prefer_related_applications": false,
+    "categories": [
+        "buttons",
+        "forms",
+        "modals",
+        "alerts",
+        "navigation",
+        "inputs",
+        "cards",
+        "dropdowns",
+        "tooltips",
+        "spinners",
+        "tables",
+        "pagination",
+        "icons",
+        "typography",
+        "badges",
+        "sliders",
+        "grids",
+        "toggles"
+    ]
+    "screenshots": [
+        {
+            "src": "/desktop.png",
+            "sizes": "1280x800",
+            "type": "image/png",
+            "form_factor": "wide"
+        }
+    ]
+}

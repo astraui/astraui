@@ -1,31 +1,18 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
-import { Inter } from 'next/font/google'
-import Header from '@/components/project/fundamentals/Header'
-import Footer from '@/components/project/fundamentals/Footer'
-import LayoutWrapper from "@/components/LayoutWrapper";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import Head from 'next/head'
+// Global CSS
+import './globals.css';
 
-// Initialize the Inter font
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
+// External Libraries
+import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
-// Initialize Geist font (for headings)
-const geist = Geist({
-  subsets: ['latin'],
-  variable: '--font-geist',
-})
+// Fonts
+import { inter, geist, geistMono } from './data/fonts'
 
-// Initialize Geist Mono (for code blocks)
-const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-geist-mono',
-})
+// Internal Components
+import Footer from '@/components/project/fundamentals/Footer';
+import Header from '@/components/project/fundamentals/Header';
+import LayoutWrapper from '@/components/LayoutWrapper';
 
 async function getProduct() {
   return {
@@ -38,25 +25,24 @@ async function getProduct() {
 
 export async function generateMetadata(): Promise<Metadata> {
   // Fetch data needed for metadata
-
+  const product = await getProduct();
+  
   return {
     title: {
-      default: "Astra UI: Design faster, build smarter, shine brighter.",
+      default: product.name,
       template: "%s | Astra UI",
     },
-    description:
-      "Astra UI is an open-source UI library for Next.js, offering accessible, production-ready components to power your next project with ease. Try it today!",
+    description: product.description,
     metadataBase: new URL("https://www.astraui.me/"),
     authors: [{ name: "Ege Uysal" }],
-    keywords: ["React UI library", "React component library", "Astra UI components", "Astra UI React", "React design system", "UI components for React", "Astra UI kit", "React UI toolkit", "modern React components", "lightweight React UI library", "customizable React components", "open source React UI library", "Astra UI framework", "React material design alternative", "Astra UI theme", "fast React UI library", "minimal React UI kit", "best React UI library", "Astra React components", "Astra UI system", "intuitive React UI", "Astra UI documentation", "React UI components open source", "Astra design system", "enterprise React UI library"],
+    keywords: ["React UI library", "React component library", "Astra UI components", "Astra UI React", "React design system", "UI components for React", "Astra UI kit", "React UI toolkit", "modern React components", "lightweight React UI library"],
     openGraph: {
-      title: "Astra UI: Design faster, build smarter, shine brighter.",
-      description:
-        "Astra UI is an open-source UI library for Next.js, offering accessible, production-ready components to power your next project with ease. Try it today!",
+      title: product.name,
+      description: product.description,
       url: "https://www.astraui.me/",
       images: [
         {
-          url: "/og-links.jpg",
+          url: product.image,
           width: 1200,
           height: 630,
           alt: "Astra UI Logo",
@@ -64,21 +50,20 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
       type: "website",
       locale: "en_US",
-      siteName: "Astra UI: Design faster, build smarter, shine brighter.",
+      siteName: product.name,
     },
     twitter: {
       card: "summary_large_image",
       site: "@astraui",
-      title: "Astra UI: Design faster, build smarter, shine brighter.",
-      description:
-        "Astra UI is an open-source UI library for Next.js, offering accessible, production-ready components to power your next project with ease. Try it today!",
-      images: ["/og-links.jpg"],
+      title: product.name,
+      description: product.description,
+      images: [product.image],
       creator: "@astraui",
     },
     icons: {
       icon: [
         { url: "/icon.ico", sizes: "any" },
-        { url: "/icon.png", type: "image/png" },
+        { url: "/apple-touch-icon.png", type: "image/png" },
       ],
       apple: "/apple-touch-icon.png",
       shortcut: "/icon.ico",
@@ -109,14 +94,17 @@ export default async function RootLayout({
 }) {
   const product = await getProduct();
 
-  const currentDate = "2025-04-11 21:45:05";
-  const priceValidUntilDate = "2026-04-11";
+  // Generate dynamic dates
+  const currentDate = new Date().toISOString();
+  const priceValidUntilDate = new Date();
+  priceValidUntilDate.setFullYear(priceValidUntilDate.getFullYear() + 1);
+  const priceValidUntilString = priceValidUntilDate.toISOString().split('T')[0];
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    image: product.image,
+    image: `https://www.astraui.me${product.image}`,
     description: product.description,
     url: "https://www.astraui.me/",
     offers: {
@@ -125,7 +113,7 @@ export default async function RootLayout({
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
       url: "https://www.astraui.me/",
-      priceValidUntil: priceValidUntilDate,
+      priceValidUntil: priceValidUntilString,
       shippingDetails: {
         "@type": "OfferShippingDetails",
         shippingRate: {
@@ -180,44 +168,19 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} ${geist.variable} ${geistMono.variable} pb-18`}>
-      <Head>
-        <meta
-          property="og:title"
-          content="Astra UI: Design faster, build smarter, shine brighter."
-        />
-        <meta
-          property="og:description"
-          content="Astra UI is an open-source UI library for Next.js, offering accessible, production-ready components to power your next project with ease. Try it today!"
-        />
-        <meta
-          property="og:image"
-          content="/og-links.jpg"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:type" content="website" />
-        <meta property="og:updated_time" content={currentDate} />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
-          }}
-        />
-      </Head>
       <body className="w-full h-full flex-center">
-        <LayoutWrapper>
-        <main className="w-[90vw] md:w-[92.5vw] lg:w-[95vw]">
-          <div className="mb-32">
-            <Header />
-          </div>
-          <Analytics />
-          {children}
-          <SpeedInsights />
-          <aside className="w-full flex-center mt-24">
-            <Footer />
-          </aside>
-        </main>
+        <LayoutWrapper jsonLdData={jsonLd}>
+          <main className="w-[90vw] md:w-[92.5vw] lg:w-[95vw]">
+            <div className="mb-32">
+              <Header />
+            </div>
+            <Analytics />
+            {children}
+            <SpeedInsights />
+            <aside className="w-full flex-center mt-24">
+              <Footer />
+            </aside>
+          </main>
         </LayoutWrapper>
       </body>
     </html>

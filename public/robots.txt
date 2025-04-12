@@ -1,0 +1,48 @@
+# robots.txt for www.astraui.me
+# Last updated: 2025-04-11
+
+# Allow all robots complete access by default
+User-agent: *
+Allow: /
+
+# Disallow access to admin areas (for security)
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /dashboard/
+Disallow: /cpanel/
+
+# Disallow access to sensitive directories
+Disallow: /private/
+Disallow: /includes/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /logs/
+
+# Disallow access to specific file types (sensitive or unnecessary for indexing)
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.sql$
+Disallow: /*.yml$
+Disallow: /*.config$
+Disallow: /*.env$
+Disallow: /*.log$
+Disallow: /*.md$  # Markdown files are often for documentation purposes
+
+# Block specific bot examples (optional based on your needs)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+# Crawl-delay suggestion for Slurp (Yahoo's bot)
+User-agent: Slurp
+Crawl-delay: 5
+
+# Sitemap declarations (update if needed)
+Sitemap: https://www.astraui.me/sitemap.xml
+Sitemap: https://www.astraui.me/post-sitemap.xml
+Sitemap: https://www.astraui.me/page-sitemap.xml
+
+# Host directive (unofficial but used by Yandex)
+Host: www.astraui.me

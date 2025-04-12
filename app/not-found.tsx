@@ -15,7 +15,7 @@ export default function NotFound() {
         />
       </Link>
       <h2>
-        Sorry, we couldn't find that page.
+        Sorry, we couldn&apos;t find that page.
       </h2>
       <button className="btn-2">Go home</button>
     </main>

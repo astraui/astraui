@@ -20,7 +20,7 @@
   /* Base body styles */
   * {
     @apply !scroll-smooth;
-    @apply !scroll-pt-72;
+    @apply !scroll-pt-48;
     @apply box-border;
   }
 

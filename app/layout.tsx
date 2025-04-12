@@ -5,7 +5,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import Head from 'next/head'
+// Remove this import as it's not needed with App Router
+// import Head from 'next/head'
 
 // Fonts
 import { inter, geist, geistMono } from './data/fonts'
@@ -94,14 +95,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const product = await getProduct();
-  const priceValidUntilDate = new Date();
-  priceValidUntilDate.setFullYear(priceValidUntilDate.getFullYear() + 1);
-  const priceValidUntilString = priceValidUntilDate.toISOString().split('T')[0];
-
-  // Keep your original variable names
+  // Define these variables only once
   const currentDate = new Date().toISOString().split('.')[0] + 'Z';
-
-  // For priceValidUntil, you're already handling it correctly
   const priceValidUntilDate = new Date();
   priceValidUntilDate.setFullYear(priceValidUntilDate.getFullYear() + 1);
   const priceValidUntilString = priceValidUntilDate.toISOString().split('T')[0];
@@ -110,7 +105,7 @@ export default async function RootLayout({
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product.name,
-    "image": `https://www.astraui.me/${product.image}`,
+    "image": `https://www.astraui.me${product.image}`,
     "description": product.description,
     "url": "https://www.astraui.me/",
     "offers": {
@@ -164,31 +159,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} ${geist.variable} ${geistMono.variable} pb-18`}>
-      <Head>
-        <meta
-          property="og:title"
-          content="Astra UI: Design faster, build smarter, shine brighter."
-        />
-        <meta
-          property="og:description"
-          content="Astra UI is an open-source UI library for Next.js, offering accessible, production-ready components to power your next project with ease. Try it today!"
-        />
-        <meta
-          property="og:image"
-          content="/og-links.jpg"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:type" content="website" />
-        <meta property="og:updated_time" content={currentDate} />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
-          }}
-        />
-      </Head>
+      {/* Remove the Head component and rely on the metadata API instead */}
       <body className="w-full h-full flex-center">
         <LayoutWrapper jsonLdData={jsonLd}>
           <main className="w-[90vw] md:w-[92.5vw] lg:w-[95vw]">

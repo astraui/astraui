@@ -72,7 +72,7 @@ export default function StartNewsletter() {
   };
 
   return (
-    <div className="w-full" id="newsletter">
+    <div className="w-full">
       <Toaster />
 
       <Form {...form}>

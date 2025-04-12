@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from "../../ui/carousel"
 
-const CarouselDemo: React.FC = () => {
+const OurComponents: React.FC = () => {
   return (
     <section className="flex-center">
       <Carousel className="w-3/4 md:w-9/10">
@@ -19,7 +19,7 @@ const CarouselDemo: React.FC = () => {
               <div className="p-1">
                 <Card>
                   <CardContent className="flex aspect-rectangle items-center justify-center p-6">
-                    <span className="text-2xl font-semibold">{index + 1}</span>
+                    <h2 className="text-center">{index + 1}</h2>
                   </CardContent>
                 </Card>
               </div>
@@ -33,4 +33,4 @@ const CarouselDemo: React.FC = () => {
   )
 }
 
-export default CarouselDemo;
+export default OurComponents;

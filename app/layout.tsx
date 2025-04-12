@@ -29,7 +29,7 @@ const geistMono = Geist_Mono({
 
 async function getProduct() {
   return {
-    name: "Astra UI: Design faster, buiild smarter, shine brighter.",
+    name: "Astra UI: Design faster, build smarter, shine brighter.",
     image: "/og-links.jpg",
     description:
       "Astra UI is an open-source UI library for Next.js, offering accessible, production-ready components to power your next project with ease. Try it today!",
@@ -41,7 +41,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: {
-      default: "Astra UI: Design faster, buiild smarter, shine brighter.",
+      default: "Astra UI: Design faster, build smarter, shine brighter.",
       template: "%s | Astra UI",
     },
     description:
@@ -50,7 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
     authors: [{ name: "Ege Uysal" }],
     keywords: ["React UI library", "React component library", "Astra UI components", "Astra UI React", "React design system", "UI components for React", "Astra UI kit", "React UI toolkit", "modern React components", "lightweight React UI library", "customizable React components", "open source React UI library", "Astra UI framework", "React material design alternative", "Astra UI theme", "fast React UI library", "minimal React UI kit", "best React UI library", "Astra React components", "Astra UI system", "intuitive React UI", "Astra UI documentation", "React UI components open source", "Astra design system", "enterprise React UI library"],
     openGraph: {
-      title: "Astra UI: Design faster, buiild smarter, shine brighter.",
+      title: "Astra UI: Design faster, build smarter, shine brighter.",
       description:
         "Astra UI is an open-source UI library for Next.js, offering accessible, production-ready components to power your next project with ease. Try it today!",
       url: "https://www.astraui.me/",
@@ -64,12 +64,12 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
       type: "website",
       locale: "en_US",
-      siteName: "Astra UI: Design faster, buiild smarter, shine brighter.",
+      siteName: "Astra UI: Design faster, build smarter, shine brighter.",
     },
     twitter: {
       card: "summary_large_image",
       site: "@astraui",
-      title: "Astra UI: Design faster, buiild smarter, shine brighter.",
+      title: "Astra UI: Design faster, build smarter, shine brighter.",
       description:
         "Astra UI is an open-source UI library for Next.js, offering accessible, production-ready components to power your next project with ease. Try it today!",
       images: ["/og-links.jpg"],
@@ -183,7 +183,7 @@ export default async function RootLayout({
       <Head>
         <meta
           property="og:title"
-          content="Astra UI: Design faster, buiild smarter, shine brighter."
+          content="Astra UI: Design faster, build smarter, shine brighter."
         />
         <meta
           property="og:description"

@@ -5,7 +5,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-// Remove this import as it's not needed with App Router
+// Next.js App Router handles head tags via metadata API, so we don't need the Head component
 // import Head from 'next/head'
 
 // Fonts
@@ -95,11 +95,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const product = await getProduct();
-  // Define these variables only once
-  const currentDate = new Date().toISOString().split('.')[0] + 'Z';
+  
+  // Define date for product schema
   const priceValidUntilDate = new Date();
   priceValidUntilDate.setFullYear(priceValidUntilDate.getFullYear() + 1);
   const priceValidUntilString = priceValidUntilDate.toISOString().split('T')[0];
+  
+  // Format current date for schema (ISO format)
+  const currentDate = new Date().toISOString();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -108,6 +111,7 @@ export default async function RootLayout({
     "image": `https://www.astraui.me${product.image}`,
     "description": product.description,
     "url": "https://www.astraui.me/",
+    "dateModified": currentDate, // Using currentDate in the schema
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -159,7 +163,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} ${geist.variable} ${geistMono.variable} pb-18`}>
-      {/* Remove the Head component and rely on the metadata API instead */}
+      {/* Next.js App Router handles head tags via metadata API, so we don't need the Head component */}
       <body className="w-full h-full flex-center">
         <LayoutWrapper jsonLdData={jsonLd}>
           <main className="w-[90vw] md:w-[92.5vw] lg:w-[95vw]">

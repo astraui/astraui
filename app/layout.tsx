@@ -99,6 +99,14 @@ export default async function RootLayout({
   priceValidUntilDate.setFullYear(priceValidUntilDate.getFullYear() + 1);
   const priceValidUntilString = priceValidUntilDate.toISOString().split('T')[0];
 
+  // Keep your original variable names
+  const currentDate = new Date().toISOString().split('.')[0] + 'Z';
+
+  // For priceValidUntil, you're already handling it correctly
+  const priceValidUntilDate = new Date();
+  priceValidUntilDate.setFullYear(priceValidUntilDate.getFullYear() + 1);
+  const priceValidUntilString = priceValidUntilDate.toISOString().split('T')[0];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",

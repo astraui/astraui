@@ -26,7 +26,7 @@ async function getProduct() {
 export async function generateMetadata(): Promise<Metadata> {
   // Fetch data needed for metadata
   const product = await getProduct();
-  
+
   return {
     title: {
       default: product.name,
@@ -94,8 +94,10 @@ export default async function RootLayout({
 }) {
   const product = await getProduct();
 
-  // Generate dynamic dates
-  const currentDate = new Date().toISOString();
+  // Keep your original variable names
+  const currentDate = new Date().toISOString().split('.')[0] + 'Z';
+
+  // For priceValidUntil, you're already handling it correctly
   const priceValidUntilDate = new Date();
   priceValidUntilDate.setFullYear(priceValidUntilDate.getFullYear() + 1);
   const priceValidUntilString = priceValidUntilDate.toISOString().split('T')[0];
@@ -103,67 +105,59 @@ export default async function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: product.name,
-    image: `https://www.astraui.me${product.image}`,
-    description: product.description,
-    url: "https://www.astraui.me/",
-    offers: {
+    "name": product.name,
+    "image": `https://www.astraui.me/${product.image}`,
+    "description": product.description,
+    "url": "https://www.astraui.me/",
+    "offers": {
       "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: "https://www.astraui.me/",
-      priceValidUntil: priceValidUntilString,
-      shippingDetails: {
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.astraui.me/",
+      "priceValidUntil": priceValidUntilString,
+      "shippingDetails": {
         "@type": "OfferShippingDetails",
-        shippingRate: {
+        "shippingRate": {
           "@type": "MonetaryAmount",
-          value: "0",
-          currency: "USD",
+          "value": "0",
+          "currency": "USD"
         },
-        deliveryTime: {
+        "deliveryTime": {
           "@type": "ShippingDeliveryTime",
-          handlingTime: {
+          "handlingTime": {
             "@type": "QuantitativeValue",
-            minValue: "0",
-            maxValue: "0",
-            unitCode: "HUR",
-          },
+            "minValue": "0",
+            "maxValue": "0",
+            "unitCode": "HUR"
+          }
         },
-        shippingDestination: {
+        "shippingDestination": {
           "@type": "DefinedRegion",
-          addressCountry: "US",
-        },
+          "addressCountry": "US"
+        }
       },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "US",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 30,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn",
+        "returnPolicyLink": "https://www.astraui.me/returns"
+      }
     },
-    aggregateRating: {
+    "aggregateRating": {
       "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "127",
+      "ratingValue": "4.8",
+      "reviewCount": "127"
     },
-    merchantReturnPolicy: {
-      "@type": "MerchantReturnPolicy",
-      returnPolicyCategory:
-        "https://schema.org/MerchantReturnFiniteReturnWindow",
-      merchantReturnDays: 30,
-      returnMethod: "https://schema.org/ReturnByMail",
-      returnFees: "https://schema.org/FreeReturn",
-    },
-    creator: {
-      "@type": "Person",
-      name: "Ege Uysal",
-      jobTitle: "Creative Professional",
-      worksFor: {
-        "@type": "Organization",
-        name: "Self-employed",
-      },
-    },
-    sameAs: [
+    "sameAs": [
       "https://twitter.com/egecreates",
       "https://www.linkedin.com/in/egeuysal",
-      "https://www.instagram.com/egeuysalo",
+      "https://www.instagram.com/egeuysalo"
     ],
-    dateModified: currentDate,
+    "dateModified": currentDate
   };
 
   return (

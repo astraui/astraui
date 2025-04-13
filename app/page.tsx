@@ -64,7 +64,7 @@ const Home: React.FC = () => {
       <section className="w-full flex flex-col gap-4">
         <h2>Effortlessly build with Astra UI&apos;s blocks.</h2>
         <p>Design stunning visuals with Astra UI&apos;s customizable, pre-built blocks for rapid development.</p>
-        <Blocks />
+        <Blocks className="md:bordered md:grid md:place-items-center md:p-16"/>
       </section>
       <section className="w-full flex flex-col gap-4">
         <h2>Common questions, clear answers.</h2>

@@ -1,8 +1,12 @@
 import React from 'react';
-import { IoMdDownload, IoMdBrush, IoMdSettings } from 'react-icons/io';
-import { FiPackage, FiCode, FiLayout } from 'react-icons/fi';
-import { BsStack, BsBoxes } from 'react-icons/bs';
-import { MdOutlineDesignServices } from 'react-icons/md';
+import { FaPalette, FaCode, FaLayerGroup, FaHistory, FaHandsHelping, FaRocket } from 'react-icons/fa';
+
+import { FaDownload } from "react-icons/fa6";
+import { FaPenFancy } from "react-icons/fa6";
+import { AiFillTool } from "react-icons/ai";
+import { FaWandMagicSparkles } from "react-icons/fa6";
+import { AiFillEye } from "react-icons/ai";
+import { FaBook } from "react-icons/fa6";
 
 // Define the type for a documentation item
 interface DocItem {
@@ -17,92 +21,92 @@ interface DocItem {
 const iconSize = 24;
 
 // Create React elements from the imported icons
-const installIcon = React.createElement(IoMdDownload, { size: iconSize });
-const componentsIcon = React.createElement(FiPackage, { size: iconSize });
-const styleIcon = React.createElement(IoMdBrush, { size: iconSize });
-const codeIcon = React.createElement(FiCode, { size: iconSize });
-const layoutIcon = React.createElement(FiLayout, { size: iconSize });
-const blockIcon = React.createElement(BsStack, { size: iconSize });
-const systemIcon = React.createElement(IoMdSettings, { size: iconSize });
-const customizeIcon = React.createElement(MdOutlineDesignServices, { size: iconSize });
-const libraryIcon = React.createElement(BsBoxes, { size: iconSize });
+const installIcon = React.createElement(FaDownload, { size: iconSize });
+const componentsIcon = React.createElement(FaPenFancy, { size: iconSize });
+const styleIcon = React.createElement(FaPalette, { size: iconSize });
+const codeIcon = React.createElement(FaCode, { size: iconSize });
+const layoutIcon = React.createElement(FaLayerGroup, { size: iconSize });
+const systemIcon = React.createElement(AiFillTool, { size: iconSize });
+const customizeIcon = React.createElement(FaWandMagicSparkles, { size: iconSize });
+const libraryIcon = React.createElement(FaBook, { size: iconSize });
+const changelogIcon = React.createElement(FaHistory, { size: iconSize });
+const contributingIcon = React.createElement(FaHandsHelping, { size: iconSize });
+const quickStartIcon = React.createElement(FaRocket, { size: iconSize });
+const apiIcon = React.createElement(AiFillEye, { size: iconSize });
 
 // Define the array of documentation items
 const docs: DocItem[] = [
   {
     icon: installIcon,
-    title: "Installation   ",
-    desc: "Get started by installing the library package now.          ",
+    title: "Installation",
+    desc: "Learn how to install and set up the library step-by-step.",
     link: "/docs/installation"
   },
   {
+    icon: quickStartIcon,
+    title: "Getting started",
+    desc: "Follow a quick guide to get started with the library easily.",
+    link: "/docs/getting-started"
+  },
+  {
     icon: componentsIcon,
-    title: "Components    ",
-    desc: "Explore the complete list of reusable UI components.       ",
+    title: "Components",
+    desc: "Browse all reusable UI components and their use cases here.",
     link: "/docs/components",
-    className: "components-card"
-  },
-  {
-    icon: blockIcon,
-    title: "Building Blocks",
-    desc: "Discover block tools to build advanced custom interfaces.  ",
-    link: "/docs/building-blocks"
-  },
-  {
-    icon: styleIcon,
-    title: "Styling       ",
-    desc: "Learn styling techniques and customize your components.    ",
-    link: "/docs/styling",
-    className: "styling-card"
   },
   {
     icon: layoutIcon,
-    title: "Layouts       ",
-    desc: "Create flexible layouts with the provided layout tools.    ",
+    title: "Layouts",
+    desc: "Explore tools to create flexible and responsive layouts now.",
     link: "/docs/layouts"
   },
   {
+    icon: styleIcon,
+    title: "Styling",
+    desc: "Learn how to style and customize components for your needs.",
+    link: "/docs/styling",
+  },
+  {
     icon: systemIcon,
-    title: "Design System ",
-    desc: "Understand design principles and token implementation.     ",
-    link: "/docs/design-system",
-    className: "system-card"
+    title: "CLI",
+    desc: "Easily integrate CLI support with customizable UI components.",
+    link: "/docs/cli",
   },
   {
     icon: customizeIcon,
-    title: "Customization  ",
-    desc: "Learn how to customize components for your requirements.  ",
+    title: "Customization",
+    desc: "Discover how to customize components for unique workflows.",
     link: "/docs/customization"
   },
   {
-    icon: codeIcon,
-    title: "API Reference ",
-    desc: "Access API details like props, methods, and definitions.   ",
-    link: "/docs/api-reference"
+    icon: apiIcon,
+    title: "Accessibility",
+    desc: "Accessible UI components ensuring usability for diverse audiences.",
+    link: "/docs/accessibility"
   },
   {
     icon: libraryIcon,
-    title: "Library Info  ",
-    desc: "Understand the purpose and structure of the library.       ",
+    title: "Library information",
+    desc: "Learn about the library structure and its key functionalities.",
     link: "/docs/library-info"
   },
   {
-    icon: React.createElement(IoMdDownload, { size: iconSize }),
-    title: "Quick Start   ",
-    desc: "Follow quick and simple steps to dive into the library.    ",
-    link: "/docs/quick-start"
-  },
-  {
-    icon: React.createElement(FiPackage, { size: iconSize }),
-    title: "Changelog     ",
-    desc: "See the history of changes and updates to the library.     ",
+    icon: changelogIcon,
+    title: "Changelog",
+    desc: "Review all updates, changes, and bug fixes in the library.",
     link: "/docs/changelog"
   },
   {
-    icon: React.createElement(MdOutlineDesignServices, { size: iconSize }),
-    title: "Contributing  ",
-    desc: "Learn how to contribute to the library as a developer.     ",
+    icon: contributingIcon,
+    title: "Contributing",
+    desc: "Find out how to contribute to the development of the library.",
     link: "/docs/contributing"
+  },
+  {
+    icon: codeIcon,
+    title: "Building blocks",
+    desc: "Explore basic building blocks for advanced UI development.",
+    link: "/docs/building-blocks"
   }
 ];
 

@@ -62,8 +62,7 @@ bg-white/75 dark:bg-black/75 py-3 px-2 rounded-lg flex justify-between relative 
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
-          <aside className="flex gap-6 items-center">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex gap-4 items-center">
               <Image
                 width={20}
                 height={20}
@@ -71,9 +70,8 @@ bg-white/75 dark:bg-black/75 py-3 px-2 rounded-lg flex justify-between relative 
                 alt="Logo"
                 src="/logos/header-logo.svg"
               />
+              <p className="font-bold hidden w-full md:flex">Astra UI</p>
             </Link>
-            <p className="font-bold hidden w-full md:flex">Astra UI</p>
-          </aside>
           <NavigationMenu className="items-center justify-center">
             <NavigationMenuList className="font-bold text-black dark:text-white flex">
               {menuItems.map((item) => (
@@ -89,7 +87,7 @@ bg-white/75 dark:bg-black/75 py-3 px-2 rounded-lg flex justify-between relative 
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
-            
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="flex md:hidden mr-2"

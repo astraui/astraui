@@ -38,9 +38,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       <div className="flex flex-col gap-4">
-        <h2>
-          Astra UI Changelog
-        </h2>
+        <h1>
+          Changelog
+        </h1>
         <p>
           Track the latest Astra UI updates, new features, improvements, and important changes in one place.
         </p>

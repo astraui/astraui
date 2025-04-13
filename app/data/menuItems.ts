@@ -16,7 +16,7 @@ const menuItems: MenuItem[] = [
     id: uuidv4(),
     title: "Documentation",
     links: [
-      { href: "/docs/getting-started", text: "Getting started" },
+      { href: "/docs/", text: "Getting started" },
       { href: "/docs/changelog", text: "Changelog" }
     ]
   },
@@ -24,8 +24,8 @@ const menuItems: MenuItem[] = [
     id: uuidv4(),
     title: "Components",
     links: [
-      { href: "/cli", text: "CLI" },
-      { href: "/components", text: "See all" }
+      { href: "../components", text: "See all" },
+      { href: "../docs/cli", text: "CLI" }
     ]
   },
   {

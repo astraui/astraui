@@ -1,5 +1,4 @@
 import React from 'react';
-import Identity from '@/components/project/landing/Identity';
 import { GoCommandPalette } from 'react-icons/go';
 import Link from 'next/link';
 import Frameworks from '@/components/project/landing/Frameworks';
@@ -10,6 +9,7 @@ import StartNewsletter from '@/components/StartNewsletter';
 import Faq from '@/components/project/landing/Faq';
 import OurComponents from '@/components/project/landing/OurComponents';
 import ContactForm from '@/components/ContactForm';
+import Blocks from '@/components/project/landing/Blocks';
 
 const Home: React.FC = () => {
   return (
@@ -26,7 +26,6 @@ const Home: React.FC = () => {
             <code>pnpm dlx astui@latest  add {"{x}"}</code>
           </button>
         </aside>
-        <Identity />
       </section>
       <section className="w-full flex flex-col gap-2">
         <h2>Optimized for speed. Built for precision.</h2>
@@ -61,6 +60,11 @@ const Home: React.FC = () => {
         <h2>Discover the building blocks of Astra UI.</h2>
         <p>Check out Astra UI&apos;s collection of customizable components for building sleek, responsive websites.</p>
         <OurComponents />
+      </section>
+      <section className="w-full flex flex-col gap-4">
+        <h2>Effortlessly build with Astra UI&apos;s blocks.</h2>
+        <p>Design stunning visuals with Astra UI&apos;s customizable, pre-built blocks for rapid development.</p>
+        <Blocks className="md:bordered md:grid md:place-items-center md:p-16"/>
       </section>
       <section className="w-full flex flex-col gap-4">
         <h2>Common questions, clear answers.</h2>

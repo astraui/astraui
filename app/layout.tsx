@@ -5,11 +5,9 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-// Next.js App Router handles head tags via metadata API, so we don't need the Head component
-// import Head from 'next/head'
 
 // Fonts
-import { inter, geist, geistMono } from './data/fonts'
+import { inter, geist, geistMono } from './data/fonts';
 
 // Internal Components
 import Footer from '@/components/project/fundamentals/Footer';
@@ -111,7 +109,7 @@ export default async function RootLayout({
     "image": `https://www.astraui.me${product.image}`,
     "description": product.description,
     "url": "https://www.astraui.me/",
-    "dateModified": currentDate, // Using currentDate in the schema
+    "dateModified": currentDate,
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -162,8 +160,18 @@ export default async function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${geist.variable} ${geistMono.variable} pb-18`}>
-      {/* Next.js App Router handles head tags via metadata API, so we don't need the Head component */}
+    <html 
+      lang="en" 
+      dir="ltr"
+      suppressHydrationWarning
+      className={`${inter.variable} ${geist.variable} ${geistMono.variable} pb-18`}
+    >
+      <head>
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="w-full h-full flex-center">
         <LayoutWrapper jsonLdData={jsonLd}>
           <main className="w-[90vw] md:w-[92.5vw] lg:w-[95vw]">

@@ -110,12 +110,12 @@
   }
 
   .form-input {
-    @apply text-sm md:text-base tracking-tight w-full flex flex-col py-2.5 px-3.5 rounded-lg  placeholder:text-[#000000]/75 dark:placeholder:text-[#ffffff]/75 text-black dark:text-white caret-black dark:caret-white border border-[#f2f2f2] dark:border-[#2e2e2e];
+    @apply text-sm md:text-base tracking-tight w-full flex flex-col py-2.5 px-3.5 rounded-lg  placeholder:text-[#000000]/50 dark:placeholder:text-[#ffffff]/75 text-black dark:text-white caret-black dark:caret-white border border-[#f2f2f2] dark:border-[#2e2e2e];
     @apply outline-none;
   }
 
   .text-area {
-    @apply text-sm md:text-base tracking-tight w-full flex flex-col py-2.5 px-3.5 rounded-lg  placeholder:text-[#000000]/75 dark:placeholder:text-[#ffffff]/75 text-black dark:text-white caret-black dark:caret-white border border-[#f2f2f2] dark:border-[#2e2e2e] h-24;
+    @apply text-sm md:text-base tracking-tight w-full flex flex-col py-2.5 px-3.5 rounded-lg  placeholder:text-[#000000]/50 dark:placeholder:text-[#ffffff]/50 text-black dark:text-white caret-black dark:caret-white border border-[#f2f2f2] dark:border-[#2e2e2e] h-24;
     @apply outline-none;
   }
 
@@ -148,4 +148,8 @@
 /* Custom Utilities */
 @utility flex-center {
   @apply flex w-full items-center flex-col;
+}
+
+@utility bordered {
+  @apply border border-snow dark:border-charcoal;
 }

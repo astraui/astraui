@@ -1,5 +1,4 @@
 import React from 'react';
-import { GoCommandPalette } from 'react-icons/go';
 import Link from 'next/link';
 import Frameworks from '@/components/project/landing/Frameworks';
 import Card from '@/components/project/fundamentals/Card';
@@ -10,6 +9,7 @@ import Faq from '@/components/project/landing/Faq';
 import OurComponents from '@/components/project/landing/OurComponents';
 import ContactForm from '@/components/ContactForm';
 import Blocks from '@/components/project/landing/Blocks';
+import CopyButton from './CopyButton'
 
 const Home: React.FC = () => {
   return (
@@ -18,13 +18,10 @@ const Home: React.FC = () => {
         <h1>Design fast. Build smart. Shine with Astra UI.</h1>
         <p>Astra UI offers beautifully-designed, accessible components with seamless framework integration. Open-source and fully customizable.</p>
         <aside className="grid md:grid-cols-2 gap-4 lg:grid-cols-4 mb-4">
-          <Link href="/">
+          <Link href="/docs">
             <button className="btn-1 w-full">Get started</button>
           </Link>
-          <button className="btn-2 lg:col-span-3 flex items-center justify-center gap-3">
-            <GoCommandPalette className="stroke-2" />
-            <code>pnpm dlx astui@latest  add {"{x}"}</code>
-          </button>
+          <CopyButton />
         </aside>
       </section>
       <section className="w-full flex flex-col gap-2">

@@ -257,7 +257,7 @@ const SignUpBlock = ({
   return (
     <section 
       className={cn(
-        "rounded-xl bg-muted-light dark:bg-muted-dark bg-contain bg-size-[256px] bg-center bg-no-repeat dark:bg-neutral-900 bg-neutral-100",
+        "rounded-xl bg-muted-light dark:bg-muted-dark bg-contain bg-size-[256px] bg-center bg-no-repeat dark:bg-neutral-900 bg-neutral-100 w-full",
         className
       )}
       style={sectionStyle}

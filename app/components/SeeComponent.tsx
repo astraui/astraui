@@ -17,7 +17,7 @@ const SeeComponent: React.FC<SeeComponentProps> = ({ preview, name, desc, classN
       <a href={link}>
         <div className="flex flex-col mt-1">
           <strong><p>{name}</p></strong>
-          <p className="opacity-50 text-sm md:text-base">{desc}</p>
+          <p className="opacity-50 text-sm w-full md:text-base">{desc}</p>
         </div>
       </a>
     </aside>

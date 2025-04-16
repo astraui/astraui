@@ -5,7 +5,7 @@ import { LuCopy } from "react-icons/lu";
 import { IoCheckmark } from "react-icons/io5";
 import { cn } from "@/lib/utils";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { dracula, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface CommandLineProps {
     command: string;
@@ -81,7 +81,7 @@ const CommandLine: React.FC<CommandLineProps> = ({ command, className = "", lang
             <div className="flex-grow overflow-x-auto">
                 <SyntaxHighlighter 
                     language={language}
-                    style={isDarkMode ? atomDark : oneLight}
+                    style={isDarkMode ? dracula : oneLight}
                     customStyle={{
                         margin: 0,
                         padding: 0,

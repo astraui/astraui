@@ -18,12 +18,12 @@ const buttonVariants = cva(
     {
         variants: {
             variant: {
-                primary: "bg-black text-white dark:bg-white dark:text-black border border-black dark:border-white hover:opacity-75",
-                secondary: "bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white hover:opacity-75",
-                outline: "bg-transparent text-black dark:text-white border border-black dark:border-white hover:opacity-75",
+                primary: "bg-black text-white dark:bg-white dark:text-black hover:opacity-75",
+                secondary: "bg-neutral-200 text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200 hover:opacity-75",
+                outline: "bg-transparent text-black dark:text-white border border-neutral-200 dark:border-neutral-800 hover:opacity-75",
                 ghost: "bg-transparent text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black",
-                link: "bg-transparent text-blue-600 dark:text-blue-400 underline hover:opacity-75",
-                destructive: "bg-red-600 text-white dark:bg-red-600 dark:text-white hover:opacity-75",
+                link: "bg-black text-white dark:bg-white dark:text-black hover:opacity-75 underline",
+                destructive: "bg-red-700 text-white dark:bg-red-700 hover:opacity-75",
             },
             size: {
                 xs: "text-xs py-1 px-2",
@@ -48,7 +48,7 @@ const buttonVariants = cva(
 const Button: React.FC<ButtonProps> = ({
     variant = "primary",
     size = "md",
-    disabled = false, // Default to false
+    disabled = false,
     onClick,
     className,
     children = "Button",

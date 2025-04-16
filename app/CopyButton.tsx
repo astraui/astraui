@@ -16,24 +16,24 @@ export const CopyCommandButton = () => {
         // Fall back to document.execCommand method
       }
     }
-    
+
     // Fallback for older browsers or non-secure contexts
     try {
       const textArea = document.createElement("textarea");
       textArea.value = text;
-      
+
       // Make the textarea out of viewport
       textArea.style.position = "fixed";
       textArea.style.left = "-999999px";
       textArea.style.top = "-999999px";
       document.body.appendChild(textArea);
-      
+
       textArea.focus();
       textArea.select();
-      
+
       const successful = document.execCommand("copy");
       document.body.removeChild(textArea);
-      
+
       if (successful) {
         return true;
       } else {
@@ -48,10 +48,10 @@ export const CopyCommandButton = () => {
 
   const handleCopy = async () => {
     const command = "pnpm dlx astui@latest add {x}";
-    
+
     try {
       const success = await copyTextToClipboard(command);
-      
+
       if (success) {
         toast("Command copied to clipboard", {
           duration: 3000,
@@ -69,7 +69,7 @@ export const CopyCommandButton = () => {
 
   return (
     <>
-      <button 
+      <button
         className="btn-2 lg:col-span-3 flex items-center justify-center gap-3"
         onClick={handleCopy}
         type="button"
@@ -77,7 +77,11 @@ export const CopyCommandButton = () => {
         <GoCommandPalette className="stroke-2" />
         <code>pnpm dlx astui@latest add {"{x}"}</code>
       </button>
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          className: "toaster-element",
+        }}
+      />
     </>
   );
 };

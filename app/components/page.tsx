@@ -3,6 +3,7 @@ import SeeComponent from "./SeeComponent"
 import components from "./components"
 import blocks from "./blocks"
 import { v4 as uuidv4 } from 'uuid';
+import Button from "@/components/astra/Button"
 
 const componentsPage: React.FC = () => {
     return (
@@ -17,7 +18,7 @@ const componentsPage: React.FC = () => {
                                 preview={component.preview}
                                 name={component.name}
                                 desc={component.desc}
-                                className={`gap-4 ${component.className}`}
+                                className={`gap-4 bordered p-24 ${component.className}`}
                                 link={component.link}
                                 key={uuidv4()}
                             />

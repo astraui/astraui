@@ -1,5 +1,5 @@
 import React from "react";
-import SeeComponent from "./SeeComponent";
+import Button from "@/components/astra/Button"
 
 interface ComponentItem {
   preview: React.ReactNode;
@@ -10,16 +10,15 @@ interface ComponentItem {
 }
 
 // Define the individual components at the top
-const samplePreview1 = React.createElement(SeeComponent);
+const button = React.createElement(Button);
 
 // Use the components in the array
 const components: ComponentItem[] = [
   {
-    preview: samplePreview1,
-    name: "Component One",
-    desc: "This is the first sample component.",
-    className: "component-one",
-    link: "/one"
+    preview: button,
+    name: "Button",
+    desc: "A sleek, customizable button component with variants, sizes, and icons for consistent UI design",
+    link: "/components/button"
   }
 ];
 

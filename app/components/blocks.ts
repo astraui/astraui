@@ -1,6 +1,5 @@
 import React from "react";
 
-// Import the custom SeeComponent
 import Blocks from "@/components/project/landing/Blocks"
 
 interface ComponentItem {

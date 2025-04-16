@@ -73,7 +73,11 @@ export default function StartNewsletter() {
 
   return (
     <div className="w-full">
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          className: "toaster-element",
+        }}
+      />
 
       <Form {...form}>
         <form

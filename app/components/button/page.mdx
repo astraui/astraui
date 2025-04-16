@@ -1,0 +1,27 @@
+import Button from '@/components/astra/Button'
+import ComponentWrapper from '@/components/ComponentWrapper'
+import CommandLine from '@/components/astra/CommandLine'
+
+# Button
+
+A sleek, customizable button component with variants, sizes, and icons for consistent UI design.
+
+<ComponentWrapper>
+    <Button>Button</Button>
+</ComponentWrapper>
+
+## Installation
+Install the button component from Astra UI using your package manager for quick integration.
+
+<div className="my-8 flex flex-col gap-4">
+    <CommandLine command="npx astui@latest add button" />
+    <CommandLine command="pnpm dlx astui@latest add button" />
+</div>
+
+## Usage
+Triggers an action or event when clicked; customizable for labels, icons, and interaction states.
+
+<div className="my-8 flex flex-col gap-4">
+    <CommandLine language='tsx' command='import Button from "@/components/ui/Button"' />
+    <CommandLine language='tsx' command='<Button variant="link" size="lg" disabled="true" onClick={handleClick()} className="font-bold">Button</Button>' />
+</div>

@@ -1,11 +1,20 @@
-import React from 'react';
+import React from "react";
 
-const Button: React.FC = () => {
-  return (
-    <div className="bg-blue-600 p-2 m-3 h-11 w-28 text-white text-center rounded-md hover:text-blue-600 hover:bg-slate-50">
-      Click Here
-    </div>
-  );
+interface ButtonProps {
+    children: React.ReactNode;
+    className?: string;
+    onClick: () => void;
+}
+
+const Button: React.FC<ButtonProps> = ({ children, className = "", onClick }) => {
+    return (
+        <button
+            className={`bg-black dark:bg-white text-white dark:text-black py-2 px-3.5 font-semibold rounded-md ${className}`}
+            onClick={onClick}
+        >
+            {children}
+        </button>
+    );
 };
 
 export default Button;

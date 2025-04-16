@@ -10,7 +10,7 @@ import { atomDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/pri
 interface CommandLineProps {
     command: string;
     className?: string;
-    language
+    language: string;
 }
 
 const CommandLine: React.FC<CommandLineProps> = ({ command, className = "", language = "bash" }) => {

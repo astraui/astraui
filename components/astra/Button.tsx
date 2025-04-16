@@ -40,7 +40,7 @@ const buttonVariants = cva(
         defaultVariants: {
             variant: "primary",
             size: "md",
-            disabled: "false",
+            disabled: false, // Use boolean here
         },
     }
 );
@@ -48,7 +48,7 @@ const buttonVariants = cva(
 const Button: React.FC<ButtonProps> = ({
     variant = "primary",
     size = "md",
-    disabled = false,
+    disabled = false, // Default to false
     onClick,
     className,
     children = "Button",
@@ -56,7 +56,7 @@ const Button: React.FC<ButtonProps> = ({
     return (
         <button
             className={cn(
-                buttonVariants({ variant, size, disabled: disabled.toString() }), 
+                buttonVariants({ variant, size, disabled }), // Pass boolean directly
                 className
             )}
             disabled={disabled}

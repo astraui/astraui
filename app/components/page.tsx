@@ -3,7 +3,6 @@ import SeeComponent from "./SeeComponent"
 import components from "./components"
 import blocks from "./blocks"
 import { v4 as uuidv4 } from 'uuid';
-import Button from "@/components/astra/Button"
 
 const componentsPage: React.FC = () => {
     return (

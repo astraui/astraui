@@ -4,9 +4,9 @@ import { cn } from "@/lib/utils"
 interface InputProps {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search' | 'date' | 'datetime-local' | 'time' | 'month' | 'week' | 'color' | 'checkbox' | 'radio' | 'range' | 'file';
-    id?: string | number;
-    placeholder?: string | number;
-    value?: string | number;
+    id?: string;
+    placeholder?: string;
+    value?: string;
     name?: string;
     disabled?: boolean;
     required?: boolean;
@@ -26,6 +26,7 @@ const Input: React.FC<InputProps> = ({
 }) => {
     return (
         <input
+            name={name}
             type={type}
             onChange={onChange}
             id={id}

@@ -10,8 +10,8 @@ interface SeeComponentProps {
 
 const SeeComponent: React.FC<SeeComponentProps> = ({ preview, name, desc, className, link }) => {
   return (
-    <aside className={`flex flex-col gap-1 ${className || ''}`}>
-      <section className="dark:bg-neutral-900 bg-neutral-100 md:bordered md:grid md:place-items-center md:p-16 rounded-xl">
+    <aside className="flex flex-col gap-1">
+      <section className={`dark:bg-neutral-900 bg-neutral-100 md:bordered grid place-items-center md:p-16 rounded-xl ${className}`}>
         {preview}
       </section>
       <a href={link}>

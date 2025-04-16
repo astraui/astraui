@@ -17,7 +17,7 @@ const componentsPage: React.FC = () => {
                                 preview={component.preview}
                                 name={component.name}
                                 desc={component.desc}
-                                className={`gap-4 ${component.className}`}
+                                className={`gap-4 bordered p-24 ${component.className}`}
                                 link={component.link}
                                 key={uuidv4()}
                             />

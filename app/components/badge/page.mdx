@@ -1,0 +1,92 @@
+import Badge from '@/components/astra/Badge'
+import ComponentWrapper from '@/components/ComponentWrapper'
+import CommandLine from '@/components/astra/CommandLine'
+
+# Badge
+
+A compact, attention-grabbing badge component for status indicators, counts, or labels.
+
+<div className="my-8 flex flex-col gap-4">
+    <ComponentWrapper>
+        <Badge>Badge</Badge>
+    </ComponentWrapper>
+</div>
+
+## Installation
+
+Install the badge component from Astra UI using your package manager for quick integration.
+
+<div className="my-8 flex flex-col gap-4">
+    <CommandLine command="npx astui@latest add badge" />
+    <CommandLine command="pnpm dlx astui@latest add badge" />
+</div>
+
+## Usage
+
+Displays a small visual indicator for statuses or counts; customizable for text, icons, and colors.
+
+<div className="my-8 flex flex-col gap-4">
+    <CommandLine language="tsx" command='import Badge from "@/components/ui/Badge"' />
+    <CommandLine language="tsx" command='<Badge variant="primary" size="md" className="font-bold">Badge</Badge>' />
+</div>
+
+## Variants
+
+Flexible badge variants for secondary, warning, error, info, and neutral statuses.
+
+<div className="my-8 flex flex-col"></div>
+
+### Secondary
+
+The secondary badge variant is used for positive indicators, such as completed tasks.
+
+<div className="my-8 flex flex-col gap-4">
+    <ComponentWrapper>
+        <Badge variant="secondary">Secondary</Badge>
+    </ComponentWrapper>
+    <CommandLine language="tsx" command='<Badge variant="secondary">Secondary</Badge>' />
+</div>
+
+### Outline
+
+The outline badge variant signals caution or important alerts.
+
+<div className="my-8 flex flex-col gap-4">
+    <ComponentWrapper>
+        <Badge variant="outline">Warning</Badge>
+    </ComponentWrapper>
+    <CommandLine language="tsx" command='<Badge variant="outline">Warning</Badge>' />
+</div>
+
+### Ghost
+
+The ghost badge variant highlights errors or critical issues.
+
+<div className="my-8 flex flex-col gap-4">
+    <ComponentWrapper>
+        <Badge variant="ghost">Error</Badge>
+    </ComponentWrapper>
+    <CommandLine language="tsx" command='<Badge variant="ghost">Error</Badge>' />
+</div>
+
+### Link
+
+The link badge variant is used for neutral or informational statuses.
+
+<div className="my-8 flex flex-col gap-4">
+    <ComponentWrapper>
+        <Badge variant="link">Info</Badge>
+    </ComponentWrapper>
+    <CommandLine language="tsx" command='<Badge variant="link">Info</Badge>' />
+</div>
+
+### Destructive
+
+The destructive badge variant is used for generic or default labels.
+
+<div className="my-8 flex flex-col gap-4">
+    <ComponentWrapper>
+        <Badge variant="destructive">Neutral</Badge>
+    </ComponentWrapper>
+    <CommandLine language="tsx" command='<Badge variant="destructive">Neutral</Badge>' />
+</div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@/components/astra/Button"
 import Input from "@/components/astra/Input"
+import Badge from "@/components/astra/Badge"
 
 interface ComponentItem {
   preview: React.ReactNode;
@@ -13,6 +14,7 @@ interface ComponentItem {
 // Define the individual components at the top
 const button = React.createElement(Button);
 const input = React.createElement(Input);
+const badge = React.createElement(Badge);
 
 // Use the components in the array
 const components: ComponentItem[] = [
@@ -27,6 +29,12 @@ const components: ComponentItem[] = [
     name: "Input",
     desc: "A sleek, customizable input component designed for building responsive and accessible forms with ease.",
     link: "/components/input"
+  },
+  {
+    preview: badge,
+    name: "Badge",
+    desc: "A compact, attention-grabbing badge component for status indicators, counts, or labels.",
+    link: "/components/badge"
   }
 ];
 

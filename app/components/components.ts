@@ -2,6 +2,7 @@ import React from "react";
 import Button from "@/components/astra/Button"
 import Input from "@/components/astra/Input"
 import Badge from "@/components/astra/Badge"
+import CommandLine from '@/components/astra/CommandLine';
 
 interface ComponentItem {
   preview: React.ReactNode;
@@ -15,6 +16,7 @@ interface ComponentItem {
 const button = React.createElement(Button);
 const input = React.createElement(Input);
 const badge = React.createElement(Badge);
+const commandLine = React.createElement(CommandLine);
 
 // Use the components in the array
 const components: ComponentItem[] = [
@@ -35,6 +37,12 @@ const components: ComponentItem[] = [
     name: "Badge",
     desc: "A compact, attention-grabbing badge component for status indicators, counts, or labels.",
     link: "/components/badge"
+  },
+  {
+    preview: commandLine,
+    name: "Command Line",
+    desc: "Reusable CLI component to display terminal commands or code snippets in docs or user interfaces.",
+    link: "/components/command-line"
   }
 ];
 

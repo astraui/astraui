@@ -56,7 +56,7 @@ const Button: React.FC<ButtonProps> = ({
     return (
         <button
             className={cn(
-                buttonVariants({ variant, size, disabled }), // Pass boolean directly
+                buttonVariants({ variant, size, disabled }),
                 className
             )}
             disabled={disabled}

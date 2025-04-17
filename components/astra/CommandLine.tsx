@@ -13,7 +13,11 @@ interface CommandLineProps {
     language: string;
 }
 
-const CommandLine: React.FC<CommandLineProps> = ({ command, className = "", language = "bash" }) => {
+const CommandLine: React.FC<CommandLineProps> = ({
+        command = "pnpm dev",
+        className = "",
+        language = "bash"
+    }) => {
     const [copied, setCopied] = useState(false);
     const [isClient, setIsClient] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -75,7 +79,7 @@ const CommandLine: React.FC<CommandLineProps> = ({ command, className = "", lang
 
     return (
         <aside className={cn(
-            "flex justify-between items-center text-black dark:text-white border border-neutral-200 rounded-md p-3 px-4 dark:border-neutral-800 font-geist",
+            "flex justify-between items-center text-black dark:text-white border border-neutral-200 rounded-md p-3 px-4 dark:border-neutral-800 font-geist w-full",
             className
         )}>
             <div className="flex-grow overflow-x-auto">

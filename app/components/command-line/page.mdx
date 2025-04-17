@@ -1,0 +1,30 @@
+import CommandLine from '@/components/astra/CommandLine';
+import ComponentWrapper from '@/components/ComponentWrapper';
+
+# Command Line
+
+Reusable CLI component to display terminal commands or code snippets in docs or user interfaces.
+
+<div className="my-8 flex flex-col gap-4">
+  <ComponentWrapper>
+    <CommandLine command="npm install my-package" />
+  </ComponentWrapper>
+</div>
+
+## Installation
+
+Install the CommandLine component from Astra UI using your preferred package manager for seamless integration.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine command="npx astui@latest add command-line" />
+  <CommandLine command="pnpm dlx astui@latest add command-line" />
+</div>
+
+## Usage
+
+Easily showcase code snippets, CLI commands, or installation instructions. Supports custom languages and styling options.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine language="tsx" command='import CommandLine from "@/components/astra/CommandLine"'/>
+    <CommandLine language="tsx" command='<CommandLine language="bash" command="pnpm dev" className="bg-blue-500"/>' />
+</div>

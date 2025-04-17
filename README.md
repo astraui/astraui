@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.links.egeuysal.com/">
+  <a href="https://www.astraui.me/">
     <img src="https://res.cloudinary.com/dpgeyzgaw/image/upload/v1743809631/Astra/astra-logo.png" height="96">
     <h3 align="center">Astra UI</h3>
   </a>
@@ -11,9 +11,9 @@
 
 <p align="center">
   <strong>
-    <a href="https://www.links.egeuysal.com/docs/getting-started">Documentation</a> ∙ 
-    <a href="https://www.links.egeuysal.com/docs/changelog">Changelog</a> ∙ 
-    <a href="https://www.links.egeuysal.com/docs/changelog">Contributing</a>
+    <a href="https://www.astraui.me/docs">Documentation</a> ∙ 
+    <a href="https://www.astraui.me/docs/changelog">Changelog</a> ∙ 
+    <a href="https://github.com/egeuysall/astraui/blob/development/CONTRIBUTING.md">Contributing</a>
   </strong>
 </p>
 
@@ -44,11 +44,11 @@ Before starting, ensure you have the following installed:
 1. Install Astra in your Next.js project:
 
    ```bash
-   pnpm dlx astui@latest add accordion"
+   pnpm dlx astui@latest add button
    ```
 2. Import and use Astra components in your project:
 
-    ```jsx
+    ```tsx
     import { Button } from "@/components/ui/button"
     import { Card } from "@/components/ui/card"
   
@@ -78,7 +78,7 @@ This project is licensed under the **[Apache 2.0 License](./LICENSE)**.
 
 ## Documentation
 
-For more detailed information about using and contributing to Astra, please visit the **[documentation](./docs/README.md)**.
+For more detailed information about using and contributing to Astra, please visit the **[documentation](https://www.astraui.me/docs))**.
 
 ## Acknowledgments
 

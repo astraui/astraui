@@ -8,7 +8,7 @@ Reusable component to display formatted code snippets with syntax highlighting i
 
 <div className="my-8 flex flex-col gap-4">
   <ComponentWrapper>
-    <CodeBlock language="js" fileName="code" code="console.log('Code block')" />
+    <CodeBlock />
   </ComponentWrapper>
 </div>
 
@@ -27,5 +27,5 @@ Easily showcase code snippets with syntax highlighting. Supports various program
 
 <div className="my-8 flex flex-col gap-4">
   <CommandLine language="tsx" command='import CodeBlock from "@/components/astra/CodeBlock"' />
-  <CommandLine command="<CodeBlock code={myCode} language='ts' fileName='example' theme='dracula' className='my-4 rounded-xl' codeClassName='text-sm' />" language="tsx" />
+  <CommandLine command="<CodeBlock code={myCode} language='ts' fileName='example' className='my-4 rounded-xl' codeClassName='text-sm' />" language="tsx" />
 </div>

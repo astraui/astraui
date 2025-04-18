@@ -4,14 +4,13 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { FaHtml5, FaCss3Alt, FaJs, FaPython, FaJava, FaFile } from 'react-icons/fa6';
-import { RiJavascriptFill } from "react-icons/ri";
 import { SiTypescript } from 'react-icons/si';
 import { IoCodeOutline, IoCheckmark } from 'react-icons/io5';
 import { LuCopy } from "react-icons/lu";
 import { cn } from '@/lib/utils';
 
 // Map all known abbreviations/extensions to their icon - all in black/white
-const languageIconMap: Record<string, JSX.Element> = {
+const languageIconMap: Record<string, React.ReactNode> = {
   html: <FaHtml5 className="text-black dark:text-white" size={16} />,
   css: <FaCss3Alt className="text-black dark:text-white" size={16} />,
   js: <FaJs className="text-black dark:text-white" size={16} />,
@@ -37,16 +36,14 @@ type CodeBlockProps = {
   code: string;
   language?: string;
   fileName?: string | null;
-  theme?: 'oneLight' | 'dracula';
   className?: string;
   codeClassName?: string;
 };
 
 const CodeBlock: React.FC<CodeBlockProps> = ({
-  code = "console.log('Code block')",
-  language = 'ts',
+  code = "# Code block",
+  language = 'md',
   fileName = "code",
-  theme = 'oneLight',
   className,
   codeClassName,
 }) => {
@@ -111,13 +108,13 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     <figure className={cn("relative w-full font-geist", className)}>
       <div
         className={cn(
-          "rounded-xl overflow-hidden w-full bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800"
+          "rounded-xl overflow-hidden w-full border border-neutral-200 dark:border-neutral-800"
         )}
       >
         {fileName && (
           <figcaption
             className={cn(
-              "flex items-center justify-between px-4 py-2.5 border-b border-[#eee] dark:border-neutral-800 bg-white dark:bg-black"
+              "flex items-center justify-between px-4 py-2.5 border-b border-[#eee] dark:border-neutral-800"
             )}
           >
             <div className="flex items-center gap-2">
@@ -144,7 +141,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             </button>
           </figcaption>
         )}
-        <div className={cn("relative group bg-white dark:bg-black")}>
+        <div className={cn("relative group")}>
           <div className="max-h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-neutral-300 dark:scrollbar-thumb-neutral-700 scrollbar-track-transparent">
             <div
               className={cn(
@@ -166,7 +163,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                   </div>
                 ))}
               </div>
-              <div className="relative flex-1 min-w-0 pt-5 pb-5 pl-0">
+              <div className="relative flex-1 min-w-0 pt-5 pb-5 pl-0 pr-4">
                 {isClient && (
                   <SyntaxHighlighter
                     language={language}
@@ -204,7 +201,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
               onClick={handleCopy}
               aria-label={copied ? "Copied!" : "Copy code"}
               className={cn(
-                "absolute right-2 top-2 transition-all duration-200 p-1.5 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 text-black dark:text-white"
+                "absolute right-2 top-2 transition-all duration-200 hover:opacity-80 text-black dark:text-white"
               )}
               title={copied ? "Copied!" : "Copy code"}
               type="button"

@@ -1,0 +1,31 @@
+import Checkbox from '@/components/astra/Checkbox';
+import ComponentWrapper from '@/components/ComponentWrapper';
+import CommandLine from '@/components/astra/CommandLine';
+
+# Checkbox
+
+A versatile, accessible checkbox component perfect for seamless form building and custom interfaces.
+
+<div className="my-8 flex flex-col gap-4">
+  <ComponentWrapper>
+    <Checkbox />
+  </ComponentWrapper>
+</div>
+
+## Installation
+
+Add the Checkbox component from Astra UI using your favorite package manager for quick setup.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine command="npx astui@latest add Checkbox" />
+  <CommandLine command="pnpm dlx astui@latest add Checkbox" />
+</div>
+
+## Usage
+
+Integrate the Checkbox component into forms, preference toggles, or filter panels. Extend with custom content, labels, or validation as needed.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine language="tsx" command='import Checkbox from "@/components/ui/Checkbox"' />
+  <CommandLine language="tsx" command='<Checkbox id="accept-terms" name="terms" className="accent-primary" onChange={handleChange} disabled={false}>Accept Terms & Conditions</Checkbox>' />
+</div>

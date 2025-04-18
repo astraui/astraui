@@ -1,0 +1,31 @@
+import Radio from '@/components/astra/Radio';
+import ComponentWrapper from '@/components/ComponentWrapper';
+import CommandLine from '@/components/astra/CommandLine';
+
+# Radio
+
+A sleek, customizable radio component designed for building responsive and accessible forms with ease.
+
+<div className="my-8 flex flex-col gap-4">
+  <ComponentWrapper>
+    <Radio>Radio</Radio>
+  </ComponentWrapper>
+</div>
+
+## Installation
+
+Install the Radio component from Astra UI using your preferred package manager for fast integration.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine command="npx astui@latest add Radio" />
+  <CommandLine command="pnpm dlx astui@latest add Radio" />
+</div>
+
+## Usage
+
+A flexible Radio field ready for use in forms, filters, and settings. Easily extendable with labels, icons, or validation.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine language="tsx" command='import Radio from "@/components/ui/Radio"' />
+  <CommandLine language="tsx" command='<Radio id="user-role" name="role" className="accent-blue-500" onChange={handleChange} disabled={false}>Admin</Radio>' />
+</div>

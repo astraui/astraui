@@ -1,0 +1,46 @@
+import Textarea from '@/components/astra/Textarea';
+import ComponentWrapper from '@/components/ComponentWrapper';
+import CommandLine from '@/components/astra/CommandLine';
+
+# Textarea
+
+A sleek, customizable textarea component designed for building responsive and accessible forms with ease.
+
+<div className="my-8 flex flex-col gap-4">
+  <ComponentWrapper>
+    <Textarea />
+  </ComponentWrapper>
+</div>
+
+## Installation
+
+Install the textarea component from Astra UI using your preferred package manager for fast integration.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine command="npx astui@latest add textarea" />
+  <CommandLine command="pnpm dlx astui@latest add textarea" />
+</div>
+
+## Usage
+
+A flexible textarea field ready for use in forms, feedback areas, and settings. Easily extendable with labels, character counters, or validation.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine language="tsx" command='import Textarea from "@/components/ui/Textarea"' />
+  <CommandLine language="tsx" command={`<Textarea
+  id="user-message"
+  name="userMessage"
+  placeholder="Type your message..."
+  maxLength={500}
+  minLength={10}
+  required
+  aria-label="Message"
+  aria-describedby="message-desc"
+  disabled={false}
+  readOnly={false}
+  value={value}
+  defaultValue="Default message"
+  onChange={handleChange}
+  className="bg-blue-50"
+/>`} />
+</div>

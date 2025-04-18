@@ -1,0 +1,31 @@
+import CodeBlock from "@/components/astra/CodeBlock"
+import ComponentWrapper from '@/components/ComponentWrapper';
+import CommandLine from "@/components/astra/CommandLine";
+
+# Code Block
+
+Reusable component to display formatted code snippets with syntax highlighting in documentation or user interfaces.
+
+<div className="my-8 flex flex-col gap-4">
+  <ComponentWrapper>
+    <CodeBlock />
+  </ComponentWrapper>
+</div>
+
+## Installation
+
+Install the CodeBlock component from Astra UI using your preferred package manager for seamless integration.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine command="npx astui@latest add code-block" />
+  <CommandLine command="pnpm dlx astui@latest add code-block" />
+</div>
+
+## Usage
+
+Easily showcase code snippets with syntax highlighting. Supports various programming languages and styling options.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine language="tsx" command='import CodeBlock from "@/components/astra/CodeBlock"' />
+  <CommandLine command="<CodeBlock code={myCode} language='ts' fileName='example' className='my-4 rounded-xl' codeClassName='text-sm' />" language="tsx" />
+</div>

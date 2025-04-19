@@ -7,6 +7,7 @@ import Textarea from '@/components/astra/Textarea'
 import CodeBlock from "@/components/astra/CodeBlock"
 import Checkbox from '@/components/astra/Checkbox';
 import Radio from '@/components/astra/Radio';
+import Switch from '@/components/astra/Switch';
 
 interface ComponentItem {
   preview: React.ReactNode;
@@ -25,6 +26,7 @@ const textArea = React.createElement(Textarea);
 const codeBlock = React.createElement(CodeBlock);
 const checkbox = React.createElement(Checkbox);
 const radio = React.createElement(Radio);
+const switchComp = React.createElement(Switch);
 
 // Use the components in the array
 const components: ComponentItem[] = [
@@ -75,6 +77,12 @@ const components: ComponentItem[] = [
     name: "Radio",
     desc: "A sleek, customizable radio component designed for building responsive and accessible forms with ease.",
     link: "/components/radio"
+  },
+  {
+    preview: switchComp,
+    name: "Switch",
+    desc: "A sleek, customizable switch component designed for building responsive and accessible forms with ease.",
+    link: "/components/switch"
   }
 ];
 

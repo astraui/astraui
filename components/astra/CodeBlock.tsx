@@ -41,9 +41,9 @@ type CodeBlockProps = {
 };
 
 const CodeBlock: React.FC<CodeBlockProps> = ({
-  code = "# Code block",
-  language = 'md',
-  fileName = "code",
+  code = "print('Hello world!')",
+  language = 'py',
+  fileName = "hello",
   className,
   codeClassName,
 }) => {
@@ -127,7 +127,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
               onClick={handleCopy}
               aria-label={copied ? "Copied!" : "Copy code"}
               className={cn(
-                "flex items-center transition-all duration-200 hover:opacity-80 text-black dark:text-white"
+                "flex items-center transition-all duration-200 hover:opacity-80 text-black dark:text-white ml-6"
               )}
               title={copied ? "Copied!" : "Copy code"}
               type="button"

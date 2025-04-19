@@ -1,0 +1,31 @@
+import Switch from '@/components/astra/Switch';
+import ComponentWrapper from '@/components/ComponentWrapper';
+import CommandLine from '@/components/astra/CommandLine';
+
+# Switch
+
+A sleek, customizable switch component designed for building responsive and accessible forms with ease.
+
+<div className="my-8 flex flex-col gap-4">
+  <ComponentWrapper>
+    <Switch checked={true} />
+  </ComponentWrapper>
+</div>
+
+## Installation
+
+Install the Switch component from Astra UI using your preferred package manager for fast integration.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine command="npx astui@latest add Switch" />
+  <CommandLine command="pnpm dlx astui@latest add Switch" />
+</div>
+
+## Usage
+
+A flexible Switch field ready for use in forms, filters, and settings. Easily extendable with custom styling and validation.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine language="tsx" command='import Switch from "@/components/ui/Switch"' />
+  <CommandLine language="tsx" command='<Switch id="user-role" name="role" className="accent-blue-500" onChange={handleChange} checked={isAdmin} disabled={false} />' />
+</div>

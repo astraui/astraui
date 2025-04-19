@@ -36,10 +36,10 @@ const Switch: React.FC<SwitchProps> = ({
     inputClassName,
     ...props
 }) => {
-    const [isChecked, setIsChecked] = React.useState(!checked);
+    const [isChecked, setIsChecked] = React.useState(checked);
 
     React.useEffect(() => {
-        setIsChecked(!checked);
+        setIsChecked(checked);
     }, [checked]);
 
     const handleChange = (newChecked: boolean) => {

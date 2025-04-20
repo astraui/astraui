@@ -6,7 +6,6 @@ interface AvatarProps {
   avatar?: string;
   displayName: string;
   size?: number;
-  backgroundColor?: string;
   className?: string;
 }
 
@@ -37,7 +36,6 @@ const Avatar: React.FC<AvatarProps> = ({
   avatar,
   displayName,
   size = 128,
-  backgroundColor = "bg-gray-100 dark:bg-gray-800",
   className,
 }) => {
   const initial = displayName?.charAt(0).toUpperCase() || "U";

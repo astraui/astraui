@@ -13,7 +13,7 @@ import CopyButton from './CopyButton'
 
 const Home: React.FC = () => {
   return (
-    <main className="flex flex-col gap-20">
+    <main className="flex fl flex-col gap-20">
       <section className="w-full flex flex-col gap-4">
         <h1>Design fast. Build smart. Shine with Astra UI.</h1>
         <p>Astra UI offers beautifully-designed, accessible components with seamless framework integration. Open-source and fully customizable.</p>

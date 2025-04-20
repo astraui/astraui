@@ -8,7 +8,8 @@ import CodeBlock from "@/components/astra/CodeBlock"
 import Checkbox from '@/components/astra/Checkbox';
 import Radio from '@/components/astra/Radio';
 import Switch from '@/components/astra/Switch';
-
+import Dropdown from '@/components/astra/Dropdown';
+import Avatar from '@/components/astra/Avatar';import Star from '@/components/astra/Star';
 interface ComponentItem {
   preview: React.ReactNode;
   name: string;
@@ -27,6 +28,9 @@ const codeBlock = React.createElement(CodeBlock);
 const checkbox = React.createElement(Checkbox);
 const radio = React.createElement(Radio);
 const switchComp = React.createElement(Switch);
+const dropdown = React.createElement(Dropdown);
+const avatar = React.createElement(Avatar);
+const star = React.createElement(Star);
 
 // Use the components in the array
 const components: ComponentItem[] = [
@@ -83,6 +87,24 @@ const components: ComponentItem[] = [
     name: "Switch",
     desc: "A sleek, customizable switch component designed for building responsive and accessible forms with ease.",
     link: "/components/switch"
+  },
+  {
+    preview: dropdown,
+    name: "Dropdown",
+    desc: "A flexible menu component for selecting options, supporting custom labels, disabled state, and required fields.",
+    link: "/components/dropdown"
+  },
+  {
+    preview: avatar,
+    name: "Avatar",
+    desc: "A versatile component for displaying user avatars with support for images or fallback initials when no image is available.",
+    link: "/components/avatar"
+  },
+  {
+    preview: star,
+    name: "Star",
+    desc: "A customizable rating component that allows users to toggle favorites or provide visual feedback through interactive star icons.",
+    link: "/components/star"
   }
 ];
 

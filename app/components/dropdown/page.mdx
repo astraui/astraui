@@ -1,0 +1,31 @@
+import Dropdown from '@/components/astra/Dropdown';
+import ComponentWrapper from '@/components/ComponentWrapper';
+import CommandLine from '@/components/astra/CommandLine';
+
+# Dropdown
+
+A flexible menu component for selecting options, supporting custom labels, disabled state, and required fields.
+
+<div className="my-8 flex flex-col gap-4">
+  <ComponentWrapper>
+    <Dropdown className="w-1/2"/>
+  </ComponentWrapper>
+</div>
+
+## Installation
+
+Install the Dropdown component quickly using your favorite package manager with these simple commands.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine command="npx astui@latest add Dropdown" />
+  <CommandLine command="pnpm dlx astui@latest add Dropdown" />
+</div>
+
+## Usage
+
+See how to import and use the Dropdown component with options and a change handler function.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine language="tsx" command='import Dropdown from "@/components/astra/Dropdown"' />
+  <CommandLine language="tsx" command='<Dropdown options={[{ value: "option1", label: "Option 1" }]} placeholder="Select an option" onChange={handleChange} />' />
+</div>

@@ -1,0 +1,40 @@
+import Avatar from '@/components/astra/Avatar';
+import ComponentWrapper from '@/components/ComponentWrapper';
+import CommandLine from '@/components/astra/CommandLine';
+
+# Avatar
+
+A versatile component for displaying user avatars with support for images or fallback initials when no image is available.
+
+<div className="my-8 flex flex-col gap-4">
+  <ComponentWrapper>
+    <div className="flex items-center gap-4">
+      <Avatar displayName="John Doe" size={128} />
+    </div>
+  </ComponentWrapper>
+</div>
+
+## Installation
+
+Install the Avatar component quickly using your favorite package manager with these simple commands.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine command="npx astui@latest add Avatar" />
+  <CommandLine command="pnpm dlx astui@latest add Avatar" />
+</div>
+
+## Usage
+
+See how to import and use the Avatar component in your projects.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine language="tsx" command='import Avatar from "@/components/astra/Avatar"' />
+  <CommandLine language="tsx" command='// With image avatar
+<Avatar 
+  avatar="/path/to/avatar.jpg" 
+  displayName="John Doe" 
+  size={128} 
+/>' />
+  <CommandLine language="tsx" command='// With fallback (displays initial "J")
+<Avatar displayName="John Doe" size={64} />' />
+</div>

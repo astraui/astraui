@@ -1,0 +1,35 @@
+import Star from '@/components/astra/Star';
+import ComponentWrapper from '@/components/ComponentWrapper';
+import CommandLine from '@/components/astra/CommandLine';
+
+# Star
+
+A customizable rating component that allows users to toggle favorites or provide visual feedback through interactive star icons.
+
+<div className="my-8 flex flex-col gap-4">
+  <ComponentWrapper>
+    <div className="flex items-center gap-4">
+      <Star />
+    </div>
+  </ComponentWrapper>
+</div>
+
+## Installation
+
+Install the Star component quickly using your favorite package manager with these simple commands.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine command="npx astui@latest add Star" />
+  <CommandLine command="pnpm dlx astui@latest add Star" />
+</div>
+
+## Usage
+
+See how to import and use the Star component in your projects.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine language="tsx" command='import Star from "@/components/astra/Star"' />
+<Star />
+  <CommandLine language="tsx" command='// With custom props
+<Star initialValue={true} size={64} color="#FFD700" onClick={() => console.log("Star clicked!")} />' />
+</div>

@@ -1,0 +1,51 @@
+import Navbar from "@/components/astra/Navbar";
+import ComponentWrapper from "@/components/ComponentWrapper";
+import CommandLine from "@/components/astra/CommandLine";
+import CodeBlock from "@/components/astra/CodeBlock";
+
+# Navbar
+
+A responsive navigation component with a modern glassmorphism design that adapts to both desktop and mobile views, featuring a hamburger menu for smaller screens.
+
+<div className="my-8 flex flex-col gap-4">
+  <ComponentWrapper>
+    <div className="flex items-center gap-4">
+      <Navbar />
+    </div>
+  </ComponentWrapper>
+</div>
+
+## Installation
+
+Install the Navbar component quickly using your favorite package manager with these simple commands.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine command="npx astui@latest add Navbar" />
+  <CommandLine command="pnpm dlx astui@latest add Navbar" />
+</div>
+
+## Usage
+
+See how to import and use the Navbar component in your projects.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine
+    language="tsx"
+    command='import Navbar from "@/components/ui/Navbar"'
+  />
+  <Navbar />
+  <CodeBlock
+    language="tsx"
+    fileName="navbar"
+    code={`// With custom props
+<Navbar 
+  logo="/path-to-logo.svg" 
+  alt="Logo" 
+  navItems={[
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" }
+  ]} 
+/>`}
+  />
+</div>

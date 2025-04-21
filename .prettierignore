@@ -1,0 +1,56 @@
+# Ignore artifacts:
+build
+coverage
+dist
+tmp
+temp
+
+# Node modules
+node_modules
+
+# Logs
+*.log
+
+# Dependency directories
+bower_components
+jspm_packages
+
+# Compiled output
+*.min.js
+*.min.css
+*.bundle.js
+*.bundle.css
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# OS generated files
+*.swp
+*.swo
+
+# IDE and Editor folders/files
+.vscode
+.idea
+*.iml
+
+# Test snapshots
+*.snap
+
+# Ignore package lock files (optional)
+# package-lock.json
+# yarn.lock
+
+# Ignore all markdown files (optional)
+# *.md
+
+# Ignore all images (optional)
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
+# *.svg

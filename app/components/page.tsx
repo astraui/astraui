@@ -41,7 +41,7 @@ const componentsPage: React.FC = () => {
                 preview={block.preview}
                 name={block.name}
                 desc={block.desc}
-                className={`gap-4 ${block.className}`}
+                className={`gap-4 border h-215 ${block.className}`}
                 link={block.link}
                 key={uuidv4()}
               />

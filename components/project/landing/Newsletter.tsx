@@ -217,7 +217,7 @@ export const Newsletter: React.FC<NewsletterProps> = ({
   return (
     <div
       className={cn(
-        "newsletter-container relative overflow-hidden rounded-lg",
+        "newsletter-container relative overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800",
         containerClassName
       )}
     >

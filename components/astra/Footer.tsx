@@ -9,9 +9,7 @@ interface FooterSectionProps extends FooterProps {
   title: string;
 }
 
-interface FooterContentProps extends FooterProps {}
-
-export const FooterContent: React.FC<FooterContentProps> = ({
+export const FooterContent: React.FC<FooterProps> = ({
   className,
   children,
 }) => {

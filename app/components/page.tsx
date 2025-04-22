@@ -13,14 +13,14 @@ const componentsPage: React.FC = () => {
           Discover Astra UI&apos;s powerful components, designed for rapid
           development and customizable, intuitive user interfaces.
         </p>
-        <aside className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <aside className="flex flex-col gap-4">
           {components.map((component) => {
             return (
               <SeeComponent
                 preview={component.preview}
                 name={component.name}
                 desc={component.desc}
-                className={`gap-4 bordered p-24 grid place-items-center h-128 w-full ${component.className}`}
+                className={`gap-4 bordered p-24 grid place-items-center w-full ${component.className}`}
                 link={component.link}
                 key={uuidv4()}
               />
@@ -34,14 +34,14 @@ const componentsPage: React.FC = () => {
           Explore Astra UI&apos;s building blocks, including fully integrated
           components like login pages and dashboards.
         </p>
-        <aside className="grid lg:grid-cols-2 gap-4 h-240">
+        <aside className="flex flex-col gap-4">
           {blocks.map((block) => {
             return (
               <SeeComponent
                 preview={block.preview}
                 name={block.name}
                 desc={block.desc}
-                className={`gap-4 border h-215 ${block.className}`}
+                className={`gap-4 border ${block.className}`}
                 link={block.link}
                 key={uuidv4()}
               />

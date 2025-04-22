@@ -207,7 +207,8 @@ export const Newsletter: React.FC<NewsletterProps> = ({
       setStatus("success");
       setMessage(successMessage);
       setEmail("");
-    } catch (error) {
+    } catch {
+      // Removed unused 'error' variable to fix ESLint warning
       setStatus("error");
       setMessage(errorMessage);
     }

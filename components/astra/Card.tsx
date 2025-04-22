@@ -113,17 +113,13 @@ export const CardFooter: React.FC<CardFooterProps> = ({
 type CardProps = {
   className?: string;
   children: React.ReactNode;
-  variant?: "default" | "outline" | "elevated";
   width?: string | number;
-  hover?: boolean;
 };
 
 export const Card: React.FC<CardProps> = ({
   className,
   children,
-  variant = "default",
   width = "100%",
-  hover = true,
 }) => {
   return (
     <div

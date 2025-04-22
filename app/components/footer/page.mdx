@@ -1,0 +1,59 @@
+import {
+  Footer,
+  FooterSection,
+  FooterContent,
+} from "@/components/astra/Footer";
+import ComponentWrapper from "@/components/ComponentWrapper";
+import CommandLine from "@/components/astra/CommandLine";
+
+# Footer
+
+A semantic and responsive Footer system composed of three building blocks: `Footer`, `FooterSection`, and `FooterContent`. Each component accepts `className` for styling and `children` for flexible nested layout.
+
+<div className="my-8 flex flex-col gap-4">
+  <ComponentWrapper>
+    <Footer>
+      <FooterSection title="Acme Inc.">
+        <FooterContent>Optimize, empower</FooterContent>
+      </FooterSection>
+      <FooterSection title="Resources">
+        <FooterContent>Company info</FooterContent>
+      </FooterSection>
+      <FooterSection title="Connect">
+        <FooterContent>GitHub</FooterContent>
+      </FooterSection>
+    </Footer>
+  </ComponentWrapper>
+</div>
+
+## Installation
+
+Add the Footer component from Astra UI using your favorite package manager for quick setup.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine command="npx astui@latest add Footer" />
+  <CommandLine command="pnpm dlx astui@latest add Footer" />
+</div>
+
+## Usage
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine
+    language="tsx"
+    command='import { Footer, FooterSection, FooterContent } from "@/components/astra/Footer"'
+  />
+  <CommandLine
+    language="tsx"
+    command={`<Footer className="bg-neutral-100 dark:bg-neutral-900 p-6">
+  <FooterSection className="space-y-2">
+    <FooterContent className="space-y-2">Company Info</FooterContent>
+  </FooterSection>
+  <FooterSection className="space-y-2">
+    <FooterContent className="space-y-2">Resources</FooterContent>
+  </FooterSection>
+  <FooterSection className="space-y-2">
+    <FooterContent className="space-y-2">Legal &amp; Links</FooterContent>
+  </FooterSection>
+</Footer>`}
+  />
+</div>

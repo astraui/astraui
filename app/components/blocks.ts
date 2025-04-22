@@ -1,6 +1,7 @@
 import React from "react";
 
-import Blocks from "@/components/project/landing/Blocks"
+import Blocks from "@/components/project/landing/Blocks";
+import { Newsletter } from "@/components/project/landing/Newsletter";
 
 interface ComponentItem {
   preview: React.ReactNode;
@@ -12,6 +13,7 @@ interface ComponentItem {
 
 // Define the individual components at the top
 const signUp = React.createElement(Blocks);
+const newsletter = React.createElement(Newsletter);
 
 // Use the components in the array
 const components: ComponentItem[] = [
@@ -19,8 +21,14 @@ const components: ComponentItem[] = [
     preview: signUp,
     name: "Sign up",
     desc: "Fast, minimal sign-up block for developers who value speed.",
-    link: "/sign-up",
-  }
+    link: "/cmponents/sign-up",
+  },
+  {
+    preview: newsletter,
+    name: "Newsletter",
+    desc: "Minimal newsletter sign-up with input, button, and smooth layout for quick subscriptions.",
+    link: "/components/newsletter",
+  },
 ];
 
 export default components;

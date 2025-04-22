@@ -1,0 +1,82 @@
+import {
+  Card,
+  CardImage,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/astra/Card";
+import ComponentWrapper from "@/components/ComponentWrapper";
+import CommandLine from "@/components/astra/CommandLine";
+import CodeBlock from "@/components/astra/CodeBlock";
+import Button from "@/components/astra/Button";
+
+# Card
+
+A minimalist and versatile card component that supports images, headers, content, and footers elegantly.
+
+<div className="my-8 flex flex-col gap-4">
+  <ComponentWrapper>
+    <div className="flex items-center gap-4">
+      <Card>
+        <CardImage src="/desktop.png" width={400} height={200} alt="Example" />
+        <CardHeader>
+          <CardTitle>Card Title</CardTitle>
+          <CardDescription>
+            This is a description of the card content
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div>Main content goes here</div>
+        </CardContent>
+        <CardFooter>
+          <Button>Action</Button>
+        </CardFooter>
+      </Card>
+    </div>
+  </ComponentWrapper>
+</div>
+
+## Installation
+
+Install the Card component quickly using your favorite package manager with these simple commands.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine command="npx astui@latest add Card" />
+  <CommandLine command="pnpm dlx astui@latest add Card" />
+</div>
+
+## Usage
+
+See how to import and use the Card component in your projects.
+
+<div className="my-8 flex flex-col gap-4">
+  <CommandLine
+    language="tsx"
+    command='import { Card, CardImage, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/astra/Card"'
+  />
+  <CodeBlock
+    language="tsx"
+    fileName="Card"
+    code={`// Basic usage
+<Card>
+  <CardImage 
+    src="/image.jpg" 
+    width={400} 
+    height={200} 
+    alt="Card image" 
+  />
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>This is a description</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <div>Main content goes here</div>
+  </CardContent>
+  <CardFooter>
+    <button>Action</button>
+  </CardFooter>
+</Card>`}
+  />
+</div>

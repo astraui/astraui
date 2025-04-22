@@ -1,15 +1,15 @@
-import Button from '@/components/astra/Button'
-import ComponentWrapper from '@/components/ComponentWrapper'
-import CommandLine from '@/components/astra/CommandLine'
+import Button from "@/components/astra/Button";
+import ComponentWrapper from "@/components/ComponentWrapper";
+import CommandLine from "@/components/astra/CommandLine";
 
 # Button
 
 A sleek, customizable button component with variants, sizes, and icons for consistent UI design.
 
 <div className="my-8 flex flex-col gap-4">
-    <ComponentWrapper>
-        <Button>Button</Button>
-    </ComponentWrapper>
+  <ComponentWrapper>
+    <Button>Button</Button>
+  </ComponentWrapper>
 </div>
 
 ## Installation
@@ -17,8 +17,8 @@ A sleek, customizable button component with variants, sizes, and icons for consi
 Install the button component from Astra UI using your package manager for quick integration.
 
 <div className="my-8 flex flex-col gap-4">
-    <CommandLine command="npx astui@latest add button" />
-    <CommandLine command="pnpm dlx astui@latest add button" />
+  <CommandLine command="npx astui@latest add button" />
+  <CommandLine command="pnpm dlx astui@latest add button" />
 </div>
 
 ## Usage
@@ -26,8 +26,14 @@ Install the button component from Astra UI using your package manager for quick 
 Triggers an action or event when clicked; customizable for labels, icons, and interaction states.
 
 <div className="my-8 flex flex-col gap-4">
-    <CommandLine language="tsx" command='import Button from "@/components/ui/Button"' />
-    <CommandLine language="tsx" command='<Button variant="link" size="lg" disabled={true} onClick={handleClick} className="font-bold">Button</Button>' />
+  <CommandLine
+    language="tsx"
+    command='import Button from "@/components/ui/Button"'
+  />
+  <CommandLine
+    language="tsx"
+    command='<Button variant="link" size="lg" disabled={true} onClick={handleClick} className="font-bold">Button</Button>'
+  />
 </div>
 
 ## Variants
@@ -41,10 +47,13 @@ Versatile button variants for primary actions, secondary prompts, destructive ev
 The primary button variant emphasizes key actions with bold styling for maximum user focus.
 
 <div className="my-8 flex flex-col gap-4">
-    <ComponentWrapper>
-        <Button variant="primary">Button</Button>
-    </ComponentWrapper>
-    <CommandLine language="tsx" command='<Button variant="primary">Button</Button>' />
+  <ComponentWrapper>
+    <Button variant="primary">Button</Button>
+  </ComponentWrapper>
+  <CommandLine
+    language="tsx"
+    command='<Button variant="primary">Button</Button>'
+  />
 </div>
 
 ### Secondary
@@ -52,10 +61,13 @@ The primary button variant emphasizes key actions with bold styling for maximum 
 The secondary button variant is used for less emphasized actions with a medium level of focus.
 
 <div className="my-8 flex flex-col gap-4">
-    <ComponentWrapper>
-        <Button variant="secondary">Button</Button>
-    </ComponentWrapper>
-    <CommandLine language="tsx" command='<Button variant="secondary">Button</Button>' />
+  <ComponentWrapper>
+    <Button variant="secondary">Button</Button>
+  </ComponentWrapper>
+  <CommandLine
+    language="tsx"
+    command='<Button variant="secondary">Button</Button>'
+  />
 </div>
 
 ### Outline
@@ -63,10 +75,13 @@ The secondary button variant is used for less emphasized actions with a medium l
 The outline button variant is used for neutral actions with a subtle border emphasis.
 
 <div className="my-8 flex flex-col gap-4">
-    <ComponentWrapper>
-        <Button variant="outline">Button</Button>
-    </ComponentWrapper>
-    <CommandLine language="tsx" command='<Button variant="outline">Button</Button>' />
+  <ComponentWrapper>
+    <Button variant="outline">Button</Button>
+  </ComponentWrapper>
+  <CommandLine
+    language="tsx"
+    command='<Button variant="outline">Button</Button>'
+  />
 </div>
 
 ### Ghost
@@ -74,10 +89,13 @@ The outline button variant is used for neutral actions with a subtle border emph
 The ghost button variant is used for minimal emphasis actions with no background or border.
 
 <div className="my-8 flex flex-col gap-4">
-    <ComponentWrapper>
-        <Button variant="ghost">Button</Button>
-    </ComponentWrapper>
-    <CommandLine language="tsx" command='<Button variant="ghost">Button</Button>' />
+  <ComponentWrapper>
+    <Button variant="ghost">Button</Button>
+  </ComponentWrapper>
+  <CommandLine
+    language="tsx"
+    command='<Button variant="ghost">Button</Button>'
+  />
 </div>
 
 ### Destructive
@@ -85,8 +103,11 @@ The ghost button variant is used for minimal emphasis actions with no background
 The destructive button variant is used for actions with potential negative consequences.
 
 <div className="my-8 flex flex-col gap-4">
-    <ComponentWrapper>
-        <Button variant="destructive">Button</Button>
-    </ComponentWrapper>
-    <CommandLine language="tsx" command='<Button variant="destructive">Button</Button>' />
+  <ComponentWrapper>
+    <Button variant="destructive">Button</Button>
+  </ComponentWrapper>
+  <CommandLine
+    language="tsx"
+    command='<Button variant="destructive">Button</Button>'
+  />
 </div>

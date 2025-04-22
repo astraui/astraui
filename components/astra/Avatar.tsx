@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -10,22 +12,26 @@ interface AvatarProps {
 }
 
 interface AvatarFallbackProps {
-  initial?: string;
+  initial: string;
   size?: number;
   className?: string;
 }
 
 const AvatarFallback: React.FC<AvatarFallbackProps> = ({
-  initial = "U",
+  initial,
   size = 128,
   className,
 }) => (
   <div
     className={cn(
       "flex items-center justify-center rounded-full font-bold transition-all duration-200 hover:grayscale mb-4 border border-neutral-200 dark:border-neutral-800 text-black dark:text-white",
-      `!w-[${size}px] !h-[${size}px] !text-[${size * 0.33}px]`,
       className
     )}
+    style={{
+      width: size,
+      height: size,
+      fontSize: size * 0.33
+    }}
     aria-label={`${initial}'s profile initial`}
   >
     {initial}
@@ -38,9 +44,11 @@ const Avatar: React.FC<AvatarProps> = ({
   size = 128,
   className,
 }) => {
+  const [isImageLoaded, setIsImageLoaded] = useState(true);
   const initial = displayName?.charAt(0).toUpperCase() || "U";
   
-  if (!avatar) {
+  // Show fallback if avatar is not provided or empty string or image failed to load
+  if (!avatar || avatar.trim() === '' || !isImageLoaded) {
     return <AvatarFallback initial={initial} size={size} className={className} />;
   }
 
@@ -48,17 +56,22 @@ const Avatar: React.FC<AvatarProps> = ({
     <div 
       className={cn(
         "relative overflow-hidden rounded-full mb-4",
-        `!w-[${size}px] !h-[${size}px]`,
         className
       )}
+      style={{
+        width: size,
+        height: size
+      }}
     >
       <Image
         src={avatar}
         alt={`${displayName}'s profile picture`}
-        fill
+        width={size}
+        height={size}
         className="object-cover transition-all duration-200 hover:grayscale"
         loading="eager"
         fetchPriority="high"
+        onError={() => setIsImageLoaded(false)}
       />
     </div>
   );

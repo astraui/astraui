@@ -26,7 +26,7 @@ export const CardImage: React.FC<CardImageProps> = ({
         width={width}
         height={height}
         alt={alt}
-        className="object-cover rounded-lg w-full h-full"
+        className={cn("object-cover rounded-lg h-full", className)}
       />
     </div>
   );
@@ -119,7 +119,7 @@ type CardProps = {
 export const Card: React.FC<CardProps> = ({
   className,
   children,
-  width = "100%",
+  width,
 }) => {
   return (
     <div

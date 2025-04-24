@@ -66,8 +66,8 @@ importers:
         specifier: ^0.503.0
         version: 0.503.0(react@19.1.0)
       motion:
-        specifier: ^12.7.5
-        version: 12.7.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^12.8.2
+        version: 12.8.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next:
         specifier: 15.3.1
         version: 15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -2788,8 +2788,8 @@ packages:
       react-dom:
         optional: true
 
-  framer-motion@12.7.5:
-    resolution: {integrity: sha512-iD+vBOLn8E8bwBAFUQ1DYXjivm+cGGPgQUQ4Doleq7YP/zHdozUVwAMBJwOOfCTbtM8uOooMi77noD261Kxiyw==}
+  framer-motion@12.8.2:
+    resolution: {integrity: sha512-JCGFJPfVmvxL4rRJgCcVCnbzPniKj5N3Sa8XQ5/TQI1bN4PyVlKDHPWfWJ7AbnFuGm9IQvZysjk+ABFbkErCrA==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -3397,8 +3397,8 @@ packages:
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
 
-  marked@15.0.9:
-    resolution: {integrity: sha512-9AW/bn9DxQeZVjR52l5jsc0W2pwuhP04QaQewPvylil12Cfr2GBfWmgp6mu8i9Jy8UlBjqDZ9uMTDuJ8QOGZJA==}
+  marked@15.0.10:
+    resolution: {integrity: sha512-BXzsfFiR2UqXFKRwpugWuCYi9mWd1aX/Yns/X52xWfvfen9lnGEDbJw9ZEjjvLZVqntqT2gX45eYvqb2dIokDw==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -3649,8 +3649,8 @@ packages:
   motion-dom@12.7.4:
     resolution: {integrity: sha512-1ZUHAoSUMMxP6jPqyxlk9XUfb6NxMsnWPnH2YGhrOhTURLcXWbETi6eemoKb60Pe32NVJYduL4B62VQSO5Jq8Q==}
 
-  motion-dom@12.7.5:
-    resolution: {integrity: sha512-0YjhPfv9n5O8DqCrSp8ny+JrsHqYu957oqlNKkrUrAvYpDKYWfp/7uM9Pu26DinbMn+H0p72rdUL8P8RzhSo1Q==}
+  motion-dom@12.8.1:
+    resolution: {integrity: sha512-ap7SvhLzSaYiY7/YzPB/dXarHqjlABJRBXGvSr7S7Sk9bwnU5J9X8+WgS3uu4w5C+JD0Xh/qZkWoRYNDjNeesg==}
 
   motion-utils@12.7.2:
     resolution: {integrity: sha512-XhZwqctxyJs89oX00zn3OGCuIIpVevbTa+u82usWBC6pSHUd2AoNWiYa7Du8tJxJy9TFbZ82pcn5t7NOm1PHAw==}
@@ -3658,8 +3658,8 @@ packages:
   motion-utils@12.7.5:
     resolution: {integrity: sha512-JIgrmEq7Vw1x0AUrjvkRp7oMMQkGqSUMT50O/Ag6RRCQWG3gRRTkOI+BirBAJT6m+GIPoiyxkJ1u98GgF/a6TQ==}
 
-  motion@12.7.5:
-    resolution: {integrity: sha512-tNybSjfg3bf60Amh/zeMH4KZ96AxyrJdM4meTJUbeEVY7d3Edl6lrWTX/GNfgpmytXwx3ZuAB55KAP+q6IiZcg==}
+  motion@12.8.2:
+    resolution: {integrity: sha512-Oy3hpk/10H9x5dKKLVjcAkv1rIn+hV42dGOliUdY9VL7admkmc3F0MBxK1YJ+7V9BgyokUyDRG3Ivs23H9Q/zA==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -7629,9 +7629,9 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  framer-motion@12.7.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  framer-motion@12.8.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      motion-dom: 12.7.5
+      motion-dom: 12.8.1
       motion-utils: 12.7.5
       tslib: 2.8.1
     optionalDependencies:
@@ -8321,7 +8321,7 @@ snapshots:
 
   markdown-table@3.0.4: {}
 
-  marked@15.0.9: {}
+  marked@15.0.10: {}
 
   math-intrinsics@1.1.0: {}
 
@@ -8539,7 +8539,7 @@ snapshots:
       katex: 0.16.22
       khroma: 2.1.0
       lodash-es: 4.17.21
-      marked: 15.0.9
+      marked: 15.0.10
       roughjs: 4.6.6
       stylis: 4.3.6
       ts-dedent: 2.2.0
@@ -8887,7 +8887,7 @@ snapshots:
     dependencies:
       motion-utils: 12.7.2
 
-  motion-dom@12.7.5:
+  motion-dom@12.8.1:
     dependencies:
       motion-utils: 12.7.5
 
@@ -8895,9 +8895,9 @@ snapshots:
 
   motion-utils@12.7.5: {}
 
-  motion@12.7.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  motion@12.8.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      framer-motion: 12.7.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      framer-motion: 12.8.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       tslib: 2.8.1
     optionalDependencies:
       react: 19.1.0

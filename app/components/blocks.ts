@@ -1,7 +1,7 @@
 import React from "react";
 
-import Blocks from "@/components/astra/landing/Blocks";
-import { Newsletter } from "@/components/astra/landing/Newsletter";
+import Blocks from "@/components/astra/Blocks";
+import { Newsletter } from "@/components/astra/Newsletter";
 
 interface ComponentItem {
   preview: React.ReactNode;
